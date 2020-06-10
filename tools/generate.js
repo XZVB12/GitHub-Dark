@@ -11,33 +11,37 @@ const mappings = {
   // ==========================================================================
   // Background
   // ==========================================================================
-  "$background: #fff": "#181818",
-  "$background: #ffe": "#242424",
-  "$background: #eee": "#242424", // graphql explorer
+  "$background: #fff": "#181818; background-image: none",
+  "$background: #ffe": "#181818",
   "$background: #fdfdfd": "#181818",
   "$background: #fafafb": "#181818",
   "$background: #fafbfc": "#181818", // .bg-gray-light
-  "$background: #efefef": "#181818",
+  "$background: #f9f9f9": "#181818",
   "$background: #f8f8f8": "#202020", // zenhub
-  "$background: #f6f8fa": "#202020",
-  "$background: #f5f5f5": "#202020", // gitako
+  "$background: #efefef": "#202020",
+  "$background: #f6f8fa": "#222",
+  "$background: #f5f5f5": "#222", // gitako
   "$background: #f4f5f5": "#242424", // zenhub
   "$background: #f4f4f4": "#242424",
-  "$background: #eff3f6": "#343434",
+  "$background: #eff3f6": "#242424",
+  "$background: #eee": "#242424", // graphql explorer
   "$background: #eaecef": "#343434",
+  "$background: #e9ecef": "#404040",
+  "$background: #e9e9e9": "#343434", // zenhub
   "$background: #e6ebf1": "#444",
   "$background: #e1e4e8": "#343434",
-  "$background: #e9e9e9": "#343434", // zenhub
   "$background: #dfe2e5": "#383838",
+  "$background: #ddd": "#383838",
   "$background: #d6e2f1": "#444",
   "$background: #d3e2f4": "#383838",
   "$background: #d1d5da": "#404040",
+  "$background: #ccc": "#484848",
   "$background: #c6cbd1": "#484848",
-  "$background: #6a737d": "#303030",
-  "$background: #24292e": "#181818",
-  "$background: #f9f9f9": "#181818",
-  "$background: #2f363d": "#282828",
+  "$background: #6a737d": "#444",
   "$background: #586069": "#343434",
+  "$background: #2f363d": "#282828",
+  "$background: #24292e": "#181818",
+
   "$background: rgba(225,228,232,0.31)": "#282828",
   "$background: hsla(0,0%,100%,.125)": "hsla(0,0%,100%,.05)",
   "$background: hsla(0,0%,100%,.175)": "hsla(0,0%,100%,.1)",
@@ -51,25 +55,27 @@ const mappings = {
   "$background: linear-gradient(#ececec, #d5d5d5)": "linear-gradient(#404040, #383838)", // graphql explorer
   "$background: linear-gradient(#ccc,#d5d5d5)": "linear-gradient(#303030, #282828)",
   "$background: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%)": "linear-gradient(#404040, #383838)",
-  "$background: rgba(27,31,35,.1)": "rgba(0,0,0,.1)",
-  "$background: rgba(27,31,35,.15)": "rgba(0,0,0,.15)",
-  "$background: #e9ecef": "#404040",
+
+  "$background: rgba(27,31,35,.08)": "rgba(200,200,200,.15)",
+  "$background: rgba(27,31,35,.1)": "rgba(200,200,200,.17)",
+  "$background: rgba(27,31,35,.15)": "rgba(200,200,200,.22)",
+
   "$background: initial": "initial",
 
   // ==========================================================================
   // Border
   // ==========================================================================
-  "$border: transparent": "transparent", // needs to come before the color variants
 
-  "$border: rgba(27,31,35,.5)": "rgba(180,180,180,.4)",
-  "$border: rgba(27,31,35,.35)": "rgba(180,180,180,.3)",
-  "$border: rgba(27,31,35,.3)": "rgba(180,180,180,.25)",
-  "$border: rgba(27,31,35,.25)": "rgba(180,180,180,.2)",
-  "$border: rgba(27,31,35,.2)": "rgba(180,180,180,.15)",
-  "$border: rgba(27,31,35,.15)": "rgba(180,180,180,.1)",
-  "$border: rgba(27,31,35,.1)": "rgba(180,180,180,.05)",
+  "$border: rgba(27,31,35,.5)": "rgba(200,200,200,.3)",
+  "$border: rgba(27,31,35,.35)": "rgba(200,200,200,.3)",
+  "$border: rgba(27,31,35,.3)": "rgba(200,200,200,.25)",
+  "$border: rgba(27,31,35,.25)": "rgba(200,200,200,.2)",
+  "$border: rgba(27,31,35,.2)": "rgba(200,200,200,.15)",
+  "$border: rgba(27,31,35,.15)": "rgba(200,200,200,.1)",
+  "$border: rgba(27,31,35,.1)": "rgba(200,200,200,.05)",
+  "$border: rgba(27,31,35,.05)": "rgba(200,200,200,.05)",
 
-  "$border: rgba(0,0,0,.125)": "rgba(180,180,180,.125)",
+  "$border: rgba(0,0,0,.125)": "rgba(200,200,200,.125)",
 
   "$border: #444d56": "#484848",
   "$border: #484848": "#afafaf", // github blog
@@ -95,7 +101,7 @@ const mappings = {
   "$border: #fff": "#181818",
   "$border: #2f363d": "#282828",
 
-  "border-top: 8px solid rgba(27,31,35,.15)": "border-top-color: rgba(180,180,180,.15)",
+  "border-top: 8px solid rgba(27,31,35,.15)": "border-top-color: rgba(200,200,200,.15)",
   "border-bottom-color: #e36209": "border-bottom-color: #eee",
 
   "border: 1px solid": "border-color: #181818",
@@ -111,7 +117,8 @@ const mappings = {
   `, // graphql explorer
   "box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2),0 1px 0 rgba(255,255,255,0.7),inset 0 1px #fff": "box-shadow: 0 0 0 .1px #343434", // graphql explorer
   "box-shadow: 0 1px 0 #fff": "box-shadow: 0 0 0 1px #484848", // graphql explorer
-  "box-shadow: inset 1px 0 0 #fff": "box-shadow: inset 1px 0 0 #181818", //
+  "box-shadow: inset 1px 0 0 #fff": "box-shadow: inset 1px 0 0 #181818",
+  "box-shadow: inset 0 2px 3px rgba(0,0,0,.075)": "box-shadow: inset 0 2px 3px rgba(255,255,255,.075)",
 
   "box-shadow: 0 0 0 .2em rgba(3,102,214,.3)": `
      box-shadow: 0 0 0 .2em rgba(79,140,201,.5);
@@ -156,26 +163,30 @@ const mappings = {
   "box-shadow: 0 1px 0 0 #0058a2": "box-shadow: 0 1px 0 0 /*[[base-color]]*/ #4f8cc9",
   "box-shadow: 0 0 0.2em #c8e1ff": "box-shadow: 0 0 .2em /*[[base-color]]*/ #4f8cc9",
 
+  "box-shadow: inset 2px 0 0 #0366d6": "box-shadow: inset 2px 0 0 #eee",
+
   // ==========================================================================
   // Color / Background
   // ==========================================================================
 
-  "fill: currentcolor": "fill: currentcolor", // needs to come before color variants
   "$border: currentcolor": "currentcolor",
 
-  "color: #000": "color: #bebebe",
-  "color: #1b1f23": "color: #afafaf",
-  "color: #141823": "color: #ddd", // graphql explorer
+  "color: #000": "color: #f0f0f0",
+  "color: #1b1f23": "color: #dcdcdc",
+  "color: #141823": "color: #dcdcdc", // graphql explorer
+  "color: #24292e": "color: #cdcdcd", // .btn
+  "color: #2f363d": "color: #bebebe",
   "color: #333": "color: #bebebe",
   "color: #3c4146": "color: #bebebe",
   "color: #444d56": "color: #afafaf",
-  "color: #555": "color: #bebebe", // graphql explorer
+  "color: #555": "color: #afafaf", // graphql explorer
+  "color: #586069": "color: #afafaf",
   "color: #666": "color: #949494",
   "color: #6a737d": "color: #949494",
-  "color: #959da5": "color: #757575",
+  "color: #959da5": "color: #767676",
   "color: #767676": "color: #767676",
-  "color: #a3aab1": "color: #757575",
-  "color: #808891": "color: #999",
+  "color: #808891": "color: #767676",
+  "color: #a3aab1": "color: #767676",
   "color: #c3c8cf": "color: #5a5a5a",
   "color: #c6cbd1": "color: #5a5a5a",
   "color: #d1d5da": "color: #404040",
@@ -191,25 +202,23 @@ const mappings = {
   "color: rgba(27,31,35,.85)": "color: rgba(230,230,230,.85)",
   "color: rgba(27,31,35,.7)": "color: rgba(230,230,230,.7)",
   "color: rgba(27,31,35,.6)": "color: rgba(230,230,230,.6)",
+  "color: rgba(27,31,35,.5)": "color: rgba(230,230,230,.5)",
   "color: rgba(27,31,35,.3)": "color: rgba(230,230,230,.3)",
   "color: rgba(36,41,46,.4)": "color: rgba(210,210,210,.4)",
-
-  "color: hsla(0,0%,100%,.5)": "color: hsla(0,0%,100%,.5)",
-  "color: hsla(0,0%,100%,.6)": "color: hsla(0,0%,100%,.4)",
-  "color: hsla(0,0%,100%,.75)": "color: hsla(0,0%,100%,.25)",
+  "color: rgb(36,41,46)": "color: rgb(210,210,210) !important", // notifications preview
 
   "fill: #959da5": "fill: #757575",
   "fill: #0366d6": "fill:  /*[[base-color]]*/ #4f8cc9",
   "fill: #1074e7": "fill:  /*[[base-color]]*/ #4f8cc9",
 
-  "color: #0366d6": "color: /*[[base-color]]*/ #4f8cc9", // needs to be after #333
-  "color: #586069": "color: #afafaf", // needs to be after #0366d6 for RGH "more" button
+  "color: #0366d6": "color: /*[[base-color]]*/ #4f8cc9",
   "color: #1074e7": "color: /*[[base-color]]*/ #4f8cc9",
   "color: #1f61a0": "color: /*[[base-color]]*/ #4f8cc9", //  graphql explorer
   "color: rgba(88,96,105,.5)": "color: rgba(148,148,148,.5)",
-  "color: #24292e": "color: #d2d2d2",
+
+  "fill: #24292e": "fill: #bebebe",
+
   "stroke: #24292e": "stroke: #d2d2d2",
-  "color: #2f363d": "color: #bebebe",
 
   // blue
   "color: #032f62": "color: #9daccc",
@@ -236,7 +245,7 @@ const mappings = {
   "color: #327fc7": "color: /*[[base-color]]*/ #4f8cc9",
   "color: #b4d6fe": "color: /*[[base-color]]*/ #4f8cc9", // github hovercard
   "$background: #4183c4": "/*[[base-color]]*/ #4f8cc9",
-  "$background: #0366d6": "/*[[base-color]]*/ #4f8cc9; color: #fff",
+  "$background: #0366d6": "/*[[base-color]]*/ #4f8cc9; color: #fff; background-image: none",
   "$border: #0366d6": "/*[[base-color]]*/ #4f8cc9",
   "$border: #1074e7": "/*[[base-color]]*/ #4f8cc9",
   "filter: drop-shadow(-.25em 0 0 #c8e1ff)": `
@@ -298,9 +307,9 @@ const mappings = {
   "$border: #34d058": "#34d058",
   "$border: #a2cbac": "#28a745",
   "$border: #dcffe4": "#002800",
-  "$background: linear-gradient(-180deg, #34d058, #28a745 90%)": "linear-gradient(180deg, #373 0%, #060 100%)", // btn-primary
-  "$background: linear-gradient(-180deg, #2fcb53, #269f42 90%)": "linear-gradient(180deg, #484 5%, #171 100%)", // btn-primary :hover
-  "background-color: #279f43": "background: linear-gradient(180deg, #595 0%, #283 100%)", // btn-primary:active
+  "$background: linear-gradient(-180deg, #34d058, #28a745 90%)": "linear-gradient(180deg, #373 0%, #060 90%)", // .btn-primary
+  "$background: linear-gradient(-180deg, #2fcb53, #269f42 90%)": "linear-gradient(180deg, #484 5%, #171 90%)", // .btn-primary :hover
+  "$background: #279f43": "#484", // .btn-primary:active
   "background-color: #94d3a2": "background: #040", // .btn-primary.disabled
   "background: linear-gradient(#34d058, #28a745)": "background: linear-gradient(#34d058, #28a745)", // refined github
   "box-shadow: 0 0 0 .2em rgba(52,208,88,.4)": "box-shadow: 0 0 0 .2em #3737",
@@ -320,6 +329,7 @@ const mappings = {
   "$background: #fffbdd": "#261d08",
   "$background: #fcf9e4": "#321", // zenhub blocked banner
   "$background: #ffe3c8": "#261d08",
+  "$background: rgba(255,223,93,.2)": "rgba(132,70,0,.2)",
   "$border: #ffd33d": "#bba257", // code link highlight
   "fill: #dbab09": "fill: #cb4",
   "$border: #fffbdd": "#321",
@@ -347,80 +357,118 @@ const mappings = {
   "$border: #ec6cb9": "#c49",
   "$background: #ffeef8": "#170711",
 
+  "text-shadow: 0 1px 0 hsla(0,0%,100%,.6)": "text-shadow: 0 1px 0 hsla(0,0%,0%,.6)",
+  "text-shadow: 0 1px 0 hsla(0,0%,100%,.5)": "text-shadow: 0 1px 0 hsla(0,0%,0%,.5)",
   "text-shadow: 0 1px 0 #fff": "text-shadow: none", // zenhub
+
   "outline: 1px solid #fff": "outline-color: #222",
 
   "$background: rgba(0,0,0,.8)": "#242424", // github hovercard
   "$border: rgba(0,0,0,.8)": "#242424", // github hovercard
 
-  "color: inherit": "color: inherit",
   "box-shadow: none": "box-shadow: none",
-  "$background: transparent": "transparent",
 
-  // not using $background to remap invalid 'background-color: none'
-  "background: none": "background: none",
-  "background-color: none": "background-color: transparent"
+  "$border: transparent": "transparent",
+  "$background: none": "none",
+  "$background: transparent": "transparent",
 };
 
 const sources = [
-  {url: "https://github.com"},
-  {url: "https://gist.github.com"},
-  {url: "https://help.github.com"},
-  {url: "https://lab.github.com"},
-  {url: "https://support.github.com"},
   {
-    url: "https://graphql.github.com/", // https://developer.github.com/v4/explorer
-    prefix: `#graphiql`,
-    match: ["#graphiql", ".graphiql-ide"],
-  },
-  {
-    url: "https://developer.github.com",
-    prefix: "html[prefix]",
-    match: ["html", "[prefix]"],
-  },
-  {
+    name: "githubstatus.com",
     url: "https://www.githubstatus.com",
     prefix: "body.status",
     match: ["body", ".status"],
   },
   {
+    name: "developer.github.com",
+    url: "https://developer.github.com",
+    prefix: "html[prefix]",
+    match: ["html", "[prefix]"],
+  },
+  {
+    name: "graphql.github.com",
+    url: "https://graphql.github.com/", // https://developer.github.com/v4/explorer
+    prefix: `#graphiql`,
+    match: ["#graphiql", ".graphiql-ide"],
+  },
+  {
+    name: "github.com mobile",
     url: "https://github.com/StylishThemes/GitHub-Dark",
     prefix: `body[class="page-responsive"]`,
     match: ["body", ".page-responsive"],
     fetchOpts: {headers: {"User-Agent": "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Mobile Safari/537.36"}},
+    strict: true,
   },
   {
+    name: "support.github.com",
+    url: "https://support.github.com",
+    strict: true,
+  },
+  {
+    name: "lab.github.com",
+    url: "https://lab.github.com",
+    strict: true,
+  },
+  {
+    name: "help.github.com",
+    url: "https://help.github.com",
+    strict: true,
+  },
+  {
+    name: "gist.github.com",
+    url: "https://gist.github.com",
+    strict: true,
+  },
+  {
+    name: "github.com",
+    url: "https://github.com",
+    strict: true,
+  },
+  {
+    name: "pdf viewer",
     url: [
       "https://render.githubusercontent.com/view/pdf?enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f74706e2f706466732f623037326638386234633836303762343561303866386236393331633037313630623462316466382f41253230436f75727365253230696e2532304d616368696e652532304c6561726e696e672532302863696d6c2d76305f392d616c6c292e706466",
       "https://render.githubusercontent.com/diff/img?commit=0fabf58a4b0a00d048d06113a063738afb674ed7&enc_url1=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f5374796c6973685468656d65732f4769744875622d4461726b2f306661626635386134623061303064303438643036313133613036333733386166623637346564372f696d616765732f73637265656e73686f74732f6265666f72652e706e67&enc_url2=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f5374796c6973685468656d65732f4769744875622d4461726b2f613434323536373337663932303861633263393435613266633561633133666562343536336262332f696d616765732f73637265656e73686f74732f6265666f72652e706e67",
     ],
     prefix: "body[data-render-url]",
     match: ["body", "[data-render-url]"],
+    strict: true,
   },
   {
-    crx: "hlepfoohegkhhmjieoechaddaejaokhf", // refined-github
+    name: "refined-github",
+    crx: "hlepfoohegkhhmjieoechaddaejaokhf",
     prefix: `html.refined-github`,
     match: ["html", "refined-github"],
     contentScriptsOnly: true,
   },
   {
-    crx: "ogcgkffhplmphkaahpmffcafajaocjbd", // zenhub
+    name: "zenhub",
+    crx: "ogcgkffhplmphkaahpmffcafajaocjbd",
     prefix: `body.zh_logged_in`,
     match: ["body", ".zh_logged_in"],
   },
   {
-    crx: "mmoahbbnojgkclgceahhakhnccimnplk", // github hovercard
+    name: "github hovercard",
+    crx: "mmoahbbnojgkclgceahhakhnccimnplk",
     prefix: `html.ghh-theme-classic`,
     match: ["html", ".ghh-theme-"],
   },
   {
-    crx: "giljefjcheohhamkjphiebfjnlphnokk", // Gitako
+    name: "gitako",
+    crx: "giljefjcheohhamkjphiebfjnlphnokk",
     prefix: `body.gitako-ready`,
     match: ["body", ".gitako-ready"],
   },
   {
-    crx: "kbbbjimdjbjclaebffknlabpogocablj" // npmhub
-  }
+    name: "npmhub",
+    crx: "kbbbjimdjbjclaebffknlabpogocablj",
+  },
+  {
+    name: "notifications preview",
+    crx: "kgilejfahkjidpaclkepbdoeioeohfmj",
+    contentScriptsOnly: true,
+  },
 ];
 
 const ignoreSelectors = [
@@ -449,10 +497,12 @@ const remapOpts = {
   lineLength: 76,
   comments: true,
   stylistic: true,
+  validate: true,
 };
 
 async function main() {
-  const generatedCss = await remapCss(await fetchCss(sources), mappings, remapOpts);
+  let generatedCss = await remapCss(await fetchCss(sources), mappings, remapOpts);
+  generatedCss = `  /* begin remap-css rules */\n${generatedCss}\n  /* end remap-css rules */`;
   await writeFile(cssFile, (await readFile(cssFile, "utf8")).replace(replaceRe, generatedCss));
 }
 

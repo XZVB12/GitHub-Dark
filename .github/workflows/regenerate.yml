@@ -16,22 +16,23 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: "12"
+          node-version: "14"
 
       - name: Install dependencies
-        run: npm install
+        run: make deps
 
       - name: Regenerate
-        run: npm run generate
+        run: make generate
 
       - name: Push
         run: |
-          if [[ $(git status --porcelain) ]]; then
+          if [[ $(git status --porcelain --untracked-files=no) ]]; then
+            make test
+            git fetch --unshallow --quiet --tags
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -am "automated regeneration"
-            npm run patch
-            git push --tags origin master
+            make patch
           else
             echo "Nothing to commit"
           fi
