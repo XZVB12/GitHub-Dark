@@ -1,8 +1,8 @@
 {
   "name": "github-dark",
-  "version": "2.0.105",
+  "version": "2.1.17",
   "description": "Dark GitHub style",
-  "license": "CC-BY-SA-4.0",
+  "license": "BSD-2-Clause",
   "repository": "StylishThemes/GitHub-Dark",
   "homepage": "https://github.com/StylishThemes/GitHub-Dark",
   "engines": {
@@ -13,15 +13,16 @@
   },
   "devDependencies": {
     "clean-css": "4.2.3",
-    "eslint": "7.2.0",
-    "eslint-config-silverwind": "13.4.4",
-    "fast-glob": "3.2.2",
+    "eslint": "7.3.1",
+    "eslint-config-silverwind": "14.0.1",
+    "fast-glob": "3.2.4",
     "fetch-css": "3.0.1",
     "perfectionist": "2.4.0",
-    "remap-css": "4.3.3",
-    "stylelint": "13.6.0",
+    "remap-css": "4.5.5",
+    "rimraf": "3.0.2",
+    "stylelint": "13.6.1",
     "stylelint-config-silverwind": "2.0.8",
-    "updates": "10.2.13",
-    "versions": "8.4.0"
+    "updates": "10.2.15",
+    "versions": "8.4.2"
   }
 }
