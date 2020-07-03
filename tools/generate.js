@@ -19,6 +19,8 @@ const mappings = {
   "$color: rgba(209,213,218,0)": "transparent",
   "$color: rgba(209,213,218,.5)": "rgba(90,90,90,.5)",
   "$color: rgba(149,157,165,.2)": "rgba(0,0,0,.2)", // modal backdrop
+  "$color: rgba(149,157,165,.3)": "rgba(0,0,0,.3)", // .box-shadow-extra-large
+  "$color: rgba(149,157,165,.15)": "rgba(0,0,0,.15)", // .box-shadow-medium
   "$color: rgba(0,0,0,0.2)": "rgba(255,255,255,0.7)",
   "$color: hsla(0,0%,100%,.8)": "hsla(0,0%,100%,.8)",
   "$color: hsla(0,0%,100%,.6)": "hsla(0,0%,0%,.6)",
@@ -26,6 +28,7 @@ const mappings = {
 
   "$background: #fff": "#181818",
   "$border: #fff": "#181818",
+  "$box-shadow: #fff": "#181818",
 
   "$color: #f3f4f6": "#242424",
   "$color: #edeff2": "#343434",
@@ -35,32 +38,94 @@ const mappings = {
   "$color: #d1d5da": "#404040",
 
   // blue (base color)
-  "$color: #79b8ff": "/*[[base-color]]*/ #4f8cc9",
+  "$color: rgba(3,102,214,.5)": "rgba(/*[[base-color-rgb]]*/, .5)",
   "$color: #0366d6": "/*[[base-color]]*/ #4f8cc9", // gitako
   "$color: #0366d6d0": "/*[[base-color]]*/ #4f8cc9", // gitako
   "$color: #3b5998": "/*[[base-color]]*/ #4f8cc9",
-  "$color: rgba(3,102,214,.5)": "rgba(/*[[base-color-rgb]]*/, .5)",
+  "$color: #79b8ff": "/*[[base-color]]*/ #4f8cc9",
+  "$color: #0361cc": "/*[[base-color]]*/ #4f8cc9",
+  "$color: #0679fc": "/*[[base-color]]*/ #4f8cc9",
+
   // blue
   "$color: rgba(4,66,137,.6)": "#4f8cc9", // .flash .octicon
-  "$color: #eaf5ff": "#182030", // .full-commit
-  "$color: #0679fc": "#4f8cc9",
-  "$color: #257bf9": "#4f8cc9",
-  "$color: #0361cc": "#4f8cc9",
   "$color: #005cc5": "#4f8cc9", // .full-commit .btn
+  "$color: #257bf9": "#4f8cc9",
+  "$color: #eaf5ff": "#182030", // .full-commit
 
   // red
-  "$color: #cb2431": "#f22",
-  "$color: #b11a04": "#f22", // graphql explorer
-  "$color: #86181d": "#f22",
-  "$color: #d73a49": "#f22",
-  "$color: #cea0a5": "#f22",
+  "$color: rgba(203,36,49,.4)": "rgba(255,68,68,.4)",
+  "$color: #86181d": "#d82828",
+  "$color: #b11a04": "#d82828", // graphql explorer
+  "$color: #cb2431": "#d82828",
+  "$color: #d73a49": "#d82828",
+  "$color: #cea0a5": "#d82828",
+  "$color: #f97583": "#f88",
+  "$color: #ffeef0": "#300",
   "$color: #ffdce0": "#300",
 
   // orange
-  "$color: #fb8532": "#fb8532",
-  "$color: #e36209": "#fb8532",
   "$color: #a04100": "#f3582c",
   "$color: #d15704": "#f3582c",
+  "$color: #e36209": "#fb8532",
+  "$color: #fb8532": "#fb8532",
+
+  // yellow / brown
+  "$color: rgba(47,38,6,.5)": "#cb4",
+  "$color: rgba(115,92,15,.5)": "rgba(204,187,68,.5)",
+  "$color: rgba(255,223,93,.2)": "rgba(132,70,0,.2)",
+  "$color: #613a00": "#bba257",
+  "$color: #735c0f": "#bba257",
+  "$color: #b08800": "#cb4",
+  "$color: #ca9800": "#cb4", // graphql explorer
+  "$color: #dbab09": "#cb4",
+  "$color: #dca874": "#cb4",
+  "$color: #f9c513": "#cb4",
+  "$color: #ffd33d": "#cb4",
+  "$color: #e5d999": "#542",
+  "$color: #d9d0a5": "#542",
+  "$color: #ffe3c8": "#261d08",
+  "$color: #faebcc": "#261d08", // zenhub
+  "$color: #fcf9e4": "#261d08", // zenhub blocked banner
+  "$color: #fff5b1": "#651",
+  "$color: #fffbdd": "#261d08",
+  "$color: #fffdef": "#261d08",
+
+  // green
+  "$color: rgba(108,198,68,.1)": "#002800",
+  "$color: rgba(52,208,88,.4)": "#3737",
+  "$color: #144620": "#6cc644",
+  "$color: #165c26": "#6cc644",
+  "$color: #22863a": "#6cc644",
+  "$color: #2a8f47": "#595", // new .btn-primary.disabled
+  "$color: #2c974b": "#484", // new .btn-primary :hover
+  "$color: #2ea44f": "#373", // new .btn-primary
+  "$color: #269f42": "#595", // .btn-primary :hover
+  "$color: #279f43": "#595", // new/old .btn-primary:active
+  "$color: #28a745": "#484", // green labels, issue icons
+  "$color: #2cbe4e": "#373",
+  "$color: #2fcb53": "#373", // .btn-primary :hover
+  "$color: #34d058": "#373", // .btn-primary
+  "$color: #94d3a2": "#040", // .btn-primary.disabled
+  "$color: #a2cbac": "#040",
+  "$color: #dcffe4": "#002800",
+  "$color: #f0fff4": "#002800",
+
+  // purple
+  "$color: #6f42c1": "#73589a",
+  "$color: #8b2bb9": "#63488a", // graphql explorer
+  "$color: #8a63d2": "#53387a",
+  "$color: #f8f4ff": "#213",
+  "$color: #f5f0ff": "#213",
+
+  // blurple
+  "$color: #3b41af": "#6570e2",
+  "$color: #5e60ba": "#5560d2", // zenhub
+  "$color: #6570e2": "#4550c2",
+
+  // pink
+  "$color: #99306f": "#e6b",
+  "$color: #ec6cb9": "#c49",
+  "$color: #ffeef8": "#170711",
 
   // ==========================================================================
   // Background
@@ -107,8 +172,6 @@ const mappings = {
   "$background: rgba(27,31,35,.1)": "rgba(220,220,220,.17)",
   "$background: rgba(27,31,35,.15)": "rgba(220,220,220,.22)",
 
-  "$background: initial": "initial",
-
   // ==========================================================================
   // Border
   // ==========================================================================
@@ -121,7 +184,6 @@ const mappings = {
   "$border: rgba(27,31,35,.15)": "rgba(220,220,220,.15)",
   "$border: rgba(27,31,35,.1)": "rgba(220,220,220,.1)",
   "$border: rgba(27,31,35,.05)": "rgba(220,220,220,.05)",
-
   "$border: rgba(0,0,0,.125)": "rgba(220,220,220,.125)",
 
   "$border: #444d56": "#484848",
@@ -142,8 +204,6 @@ const mappings = {
   "$border: #f6f8fa": "#202020",
   "$border: #f8f8f8": "#343434",
   "$border: #2f363d": "#282828",
-
-  "border-top: 8px solid rgba(27,31,35,.15)": "border-top-color: rgba(220,220,220,.15)",
 
   // ==========================================================================
   // Box-Shadow
@@ -184,28 +244,19 @@ const mappings = {
     box-shadow: 0 1px 0 0 /*[[base-color]]*/;
   `,
 
-  "box-shadow: 0 0 0 .2em rgba(203,36,49,.4)": "box-shadow: 0 0 0 .2em rgba(255,68,68,.4)",
-
   "box-shadow: 0 1px 5px rgba(27,31,35,.15)": "box-shadow: 0 1px 5px #000",
   "box-shadow: 0 0 5px rgba(27,31,35,.3)": "box-shadow: 0 0 5px #000",
   "box-shadow: 0 0 18px rgba(0,0,0,.4)": "box-shadow: 0 0 18px #000",
-
   "box-shadow: inset 0 1px 0 rgba(225,228,232,.2)": "box-shadow: none",
-
   "box-shadow: inset 0 -1px 0 #959da5": "box-shadow: inset 0 -2px 0 #383838",
-
   "box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px inset": "box-shadow: #000 0px 0px 0px inset", // status
-
   "box-shadow: 0 1px 0 0 #0058a2": "box-shadow: 0 1px 0 0 /*[[base-color]]*/ #4f8cc9",
   "box-shadow: 0 0 0.2em #c8e1ff": "box-shadow: 0 0 .2em /*[[base-color]]*/ #4f8cc9",
-
   "box-shadow: 0 1px 0 rgba(27,31,35,.04),inset 0 1px 0 hsla(0,0%,100%,.25)": "box-shadow: none", // .btn
   "box-shadow: 0 1px 0 rgba(27,31,35,.1),inset 0 1px 0 hsla(0,0%,100%,.03)": "box-shadow: none", // .btn-primary
   // ==========================================================================
   // Color / Background
   // ==========================================================================
-
-  "$border: currentcolor": "currentcolor",
 
   "color: #000": "color: #f0f0f0",
   "color: #1b1f23": "color: #dcdcdc",
@@ -250,7 +301,6 @@ const mappings = {
   "color: rgba(88,96,105,.5)": "color: rgba(148,148,148,.5)",
 
   "fill: #24292e": "fill: #bebebe",
-
   "stroke: #24292e": "stroke: #d2d2d2",
 
   // blue
@@ -267,15 +317,13 @@ const mappings = {
   "$background: #c8e1ff": "#224466",
   "$border: #c8e1ff": "#224466",
   "$border: #c0d3eb": "#224466",
-  "$background: #0361cc": "#182030",
   "$background: #05264c": "#182030",
-  "$background: #005cc2": "/*[[base-color]]*/ #4f8cc9",
-  "$background: #3072b3": "/*[[base-color]]*/ #4f8cc9",
 
   // blue (base-color)
   "color: #327fc7": "color: /*[[base-color]]*/ #4f8cc9",
   "color: #b4d6fe": "color: /*[[base-color]]*/ #4f8cc9", // github hovercard
   "$background: #4183c4": "/*[[base-color]]*/ #4f8cc9",
+  "$background: #0361cc": "/*[[base-color]]*/ #4f8cc9",
   "$border: #1074e7": "/*[[base-color]]*/ #4f8cc9",
   "filter: drop-shadow(-.25em 0 0 #c8e1ff)": `
     filter: drop-shadow(-.25em 0 0 rgba(79,140,201,.3));
@@ -300,89 +348,16 @@ const mappings = {
     box-shadow: 0 0 rgba(79,140,201,.3);
     box-shadow: 0 0 rgba(/*[[base-color-rgb]]*/, .3)
   `,
-
-  // green
-  "color: #28a745": "color: #6cc644",
-  "color: #165c26": "color: #6cc644",
-  "color: #144620": "color: #34d058",
-  "$background: #28a745": "#373",
-  "$background: #2cbe4e": "#373",
-  "$background: #dcffe4": "#002800",
-  "$background: #f0fff4": "#002800",
-  "$background: rgba(108,198,68,.1)": "#002800",
-  "fill: #2cbe4e": "fill: #6cc644",
-  "fill: #22863a": "fill: #6cc644",
-  "$border: #34d058": "#34d058",
-  "$border: #a2cbac": "#28a745",
-  "$border: #dcffe4": "#002800",
-  "$background: linear-gradient(-180deg, #34d058, #28a745 90%)": "linear-gradient(180deg, #373 0%, #060 90%)", // .btn-primary
-  "$background: linear-gradient(-180deg, #2fcb53, #269f42 90%)": "linear-gradient(180deg, #484 5%, #171 90%)", // .btn-primary :hover
-  "background-color: #94d3a2": "background: #040", // .btn-primary.disabled
-  "background: linear-gradient(#34d058, #28a745)": "background: linear-gradient(#34d058, #28a745)", // refined github
-
-  "background-color: #2ea44f": "background-color: #373", // new .btn-primary
-  "background-color: #2c974b": "background-color: #484", // new .btn-primary :hover
-  "background-color: #279f43": "background-color: #484", // new/old .btn-primary:active
-  "background-color: #2a8f47": "background-color: #595", // new .btn-primary.disabled
-
-  "box-shadow: 0 0 0 .2em rgba(52,208,88,.4)": "box-shadow: 0 0 0 .2em #3737",
-
-  // yellow
-  "color: rgba(47,38,6,.5)": "color: #cb4",
-  "color: rgba(115,92,15,.5)": "color: rgba(204,187,68,.5)",
-  "color: #dbab09": "color: #cb4",
-  "color: #ca9800": "color: #cb4", // graphql explorer
-  "color: #b08800": "color: #cb4",
-  "color: #735c0f": "color: #bba257",
-  "color: #613a00": "color: #bba257",
-  "$background: #ffd33d": "#cb4",
-  "$background: #ffdf5d": "#cb4",
-  "$background: #dbab09": "#cb4",
-  "$background: #fffdef": "#261d08",
-  "$background: #fffbdd": "#261d08",
-  "$background: #fcf9e4": "#321", // zenhub blocked banner
-  "$background: #ffe3c8": "#261d08",
-  "$background: rgba(255,223,93,.2)": "rgba(132,70,0,.2)",
-  "$border: #ffd33d": "#bba257", // code link highlight
-  "fill: #dbab09": "fill: #cb4",
-  "$border: #fffbdd": "#321",
-  "$border: #ffdf5d": "#321",
-  "$border: #fffdef": "#261d08",
-  "$border: #faebcc": "#542", // zenhub
-  "$border: #d9d0a5": "#542",
-  "$border: #dca874": "#542",
-  "$border: #e5d999": "#542",
-
-  // light yellow
-  "$background: #fff5b1": "#651",
-
-  // purple
-  "color: #8b2bb9": "color: #8368aa", // graphql explorer
-  "color: #6f42c1": "color: #8368aa",
-  "$background: #6f42c1": "#8368aa",
-  "$background: #f8f4ff": "#213",
-  "$background: #f5f0ff": "#213",
-  "$border: #6f42c1": "#8368aa",
-  "$border: #8a63d2": "#8368aa",
-  "$border: #5e60ba": "#8368aa", // zenhub
-
-  // pink
-  "$border: #ec6cb9": "#c49",
-  "$background: #ffeef8": "#170711",
+  "$background: #005cc2": "/*[[base-color]]*/ #4f8cc9",
+  "$background: #3072b3": "/*[[base-color]]*/ #4f8cc9",
 
   "$background: rgba(0,0,0,.8)": "#242424", // github hovercard
   "$border: rgba(0,0,0,.8)": "#242424", // github hovercard
 
+  // various noop rules to support rules overridden in the original styles
   "box-shadow: none": "box-shadow: none",
-
-  "$border: transparent": "transparent",
-  "border: 1px solid transparent": "border: 1px solid transparent",
-  "$border: 0": "0",
-  "border-top: 0": "border-top: 0",
-  "border-bottom: 0": "border-bottom: 0",
-  "border-left: 0": "border-left: 0",
-  "border-right: 0": "border-right: 0",
   "$background: none": "none",
+  "$background: initial": "initial",
   "$background: transparent": "transparent",
 };
 
@@ -407,7 +382,7 @@ const sources = [
   },
   {
     name: "github.com mobile",
-    url: "https://github.com/StylishThemes/GitHub-Dark",
+    url: "https://github.com/StylishThemes/GitHub-Dark/pull/1",
     prefix: `body[class="page-responsive"]`,
     match: ["body", ".page-responsive"],
     fetchOpts: {headers: {"User-Agent": "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Mobile Safari/537.36"}},
@@ -421,8 +396,8 @@ const sources = [
     strict: true,
   },
   {
-    name: "help.github.com",
-    url: "https://help.github.com",
+    name: "docs.github.com",
+    url: "https://docs.github.com",
     prefix: `body.d-lg-flex`,
     match: ["body", "d-lg-flex"],
     strict: true,
@@ -490,7 +465,7 @@ const ignoreSelectors = [
   /\spre$/,
   /^.Popover-message:before$/,
   /^.Popover-message:after$/,
-  /^h[1-6] a$/, // conflicting styles from help.github.com
+  /^h[1-6] a$/, // conflicting styles from docs.github.com
   /^\.bg-white$/,
   /^\.CircleBadge$/,
   /^table$/,
