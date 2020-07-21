@@ -1,0 +1,58 @@
+@-moz-document domain("docs.github.com") {
+  /* generated docs.github.com rules */
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h4 a > strong code {
+    color: #bebebe;
+  }
+  h3 a {
+    color: /*[[base-color]]*/;
+  }
+  .directory-toc h3 a {
+    color: #bebebe;
+  }
+  .nav-mobile-burgerIcon {
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+  /* Using #fff over currentColor because GH relies on browser default #000 */
+  .hljs {
+    color: var(--ghd-code-color);
+  }
+  .extended-markdown p code {
+    background-color: #1e293c !important;
+  }
+  .extended-markdown.warning p code {
+    background-color: #500 !important;
+  }
+  .octicon-mark-github {
+    color: currentcolor;
+  }
+  .sidebar {
+    background-color: #1c1c1c;
+    border-right: 1px solid #343434;
+  }
+  .sidebar-guide.active {
+    background: #242424;
+  }
+  .sidebar-products svg:not([fill]) {
+    fill: #eee;
+  }
+  .sidebar-products a, .sidebar-products .arrow {
+    color: #eee;
+  }
+  .sidebar-guide > a, .sidebar-guide summary a, .sidebar-product > a,
+  .sidebar-product summary a {
+    color: #ccc;
+  }
+  body.d-lg-flex .sidebar-products a:hover {
+    opacity: 1;
+  }
+  .sidebar-topic a:hover {
+    opacity: .9 !important;
+  }
+  .btn-blue.hover, .btn.btn-blue:hover {
+    background-image: linear-gradient(-180deg, rgba(/*[[base-color-rgb]]*/, .9), rgba(/*[[base-color-rgb]]*/, .8) 90%) !important;
+    border-color: rgba(/*[[base-color-rgb]]*/, .3) !important;
+  }
+  [style*="background-color: #fafbfc"] {
+    background: none !important;
+  }
+}
