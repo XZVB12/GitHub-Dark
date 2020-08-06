@@ -25,20 +25,37 @@ module.exports.mappings = {
   "$color: hsla(0,0%,100%,.8)": "hsla(0,0%,100%,.8)",
   "$color: hsla(0,0%,100%,.6)": "hsla(0,0%,0%,.6)",
   "$color: hsla(0,0%,100%,.5)": "hsla(0,0%,0%,.5)",
+  "$color: hsla(0,0%,100%,.125)": "hsla(0,0%,0%,.125)",
+  "$color: hsla(0,0%,100%,.05)": "hsla(0,0%,0%,.05)",
 
-  "$background: #fff": "#151515",
-  "$border: #fff": "#151515",
-  "$box-shadow: #fff": "#151515",
+  "$background: #fff": "#181818",
+  "$border: #fff": "var(--ghd-bg-color)",
+  "$box-shadow: #fff": "var(--ghd-bg-color)",
   "color: #fff": "color: #fff",
 
+  "$color: #fcfcfc": "#1d1d1d",
+  "$color: #f7f7f7": "#202020",
   "$color: #f3f4f6": "#242424",
-  "$color: #edeff2": "#343434",
+  "$color: #f0f3f6": "#242424",
+  "$color: #eff1f3": "#242424",
+  "$color: #eeeeee": "#2c2c2c",
+  "$color: #edeff2": "#2c2c2c",
   "$color: #eaecef": "#343434",
   "$color: #e1e4e8": "#343434",
+  "$color: #e0e0e0": "#343434",
   "$color: #dfe2e5": "#343434",
+  "$color: #dddddd": "#343434",
+  "$color: #d8dee2": "#343434",
   "$color: #d1d5da": "#404040",
-  "$color: #c6cbd1": "#5a5a5a",
-  "$color: #444d56": "#afafaf", // .full-commit .commit-desc pre
+  "$color: #c6cbd1": "#505050",
+  "$color: #cccccc": "#5a5a5a",
+  "$color: #bbbbbb": "#606060",
+
+  // #444d56 is used for various dark-ish parts like actions. only invert text color for it
+  "color: #444d56": "color: #afafaf", // .full-commit .commit-desc pre
+  "$border: #444d56": "#343434",
+  "$background: #444d56": "#343434",
+  "$box-shadow: #444d56": "#343434",
 
   // blue (base color)
   "$color: rgba(3, 47, 98, 0.55)": "/*[[base-color]]*/", // gitako
@@ -72,6 +89,7 @@ module.exports.mappings = {
   "$color: #005cc5": "#4f8cc9", // .full-commit .btn
   "$color: #257bf9": "#4f8cc9",
   "$color: #eaf5ff": "#182030", // .full-commit
+  "$color: #e0f1ff": "#182030",
   "$color: #d2dff0": "#224466", // org discussion reactions
 
   // red
@@ -93,10 +111,13 @@ module.exports.mappings = {
 
   // yellow / brown
   "$color: rgba(47,38,6,.5)": "#cb4",
+  "$color: rgba(176,136,0,.2)": "#542", // .flash-warn
   "$color: rgba(115,92,15,.5)": "rgba(204,187,68,.5)",
   "$color: rgba(255,223,93,.2)": "rgba(132,70,0,.2)",
   "$color: #613a00": "#bba257",
   "$color: #735c0f": "#bba257",
+  "$color: #6d6c60": "#c95", // .compare-pr-placeholder
+  "$color: #9c997d": "#c95", // .compare-pr-placeholder
   "$color: #b08800": "#cb4",
   "$color: #ca9800": "#cb4", // graphql explorer
   "$color: #dbab09": "#cb4",
@@ -134,9 +155,10 @@ module.exports.mappings = {
   "$color: #f0fff4": "#002800",
 
   // purple
-  "$color: #6f42c1": "#9378ba",
+  "$color: #6f42c1": "#73589a",
   "$color: #8b2bb9": "#73589a", // graphql explorer
   "$color: #8a63d2": "#53387a",
+  "$color: #d5c8ed": "#53387a",
   "$color: #f8f4ff": "#251533",
   "$color: #f6f1ff": "#231233",
   "$color: #f5f0ff": "#221133",
@@ -166,18 +188,18 @@ module.exports.mappings = {
   "$background: #f4f5f5": "#242424", // zenhub
   "$background: #f4f4f4": "#242424",
   "$background: #eff3f6": "#242424",
-  "$background: #eee": "#242424", // graphql explorer
   "$background: #e9ecef": "#404040",
   "$background: #e9e9e9": "#343434", // zenhub
   "$background: #e6ebf1": "#444",
-  "$background: #ddd": "#383838",
   "$background: #d6e2f1": "#444",
   "$background: #d3e2f4": "#383838",
-  "$background: #ccc": "#484848",
   "$background: #6a737d": "#444",
   "$background: #586069": "#343434",
-  "$background: #2f363d": "#282828",
+  "$background: #2f363d": "#222",
   "$background: #24292e": "#181818",
+  "$background: #3c4146": "#181818",
+  "$background: #f0f5fa": "#202020",
+  "$background: #f8fafd": "#202020",
 
   "$background: rgba(225,228,232,0.31)": "#282828",
   "$background: linear-gradient(180deg,rgba(242,248,254,0),rgba(242,248,254,.47))": "linear-gradient(180deg,#181818,#181818)",
@@ -212,9 +234,7 @@ module.exports.mappings = {
 
   "$border: #484848": "#afafaf", // github blog
   "$border: #959da5": "#484848",
-  "$border: #bbb": "#484848",
   "$border: #c3c8cf": "#484848",
-  "$border: #ddd": "#343434",
   "$border: #d6d6d6": "#343434", // graphql explorer
   "$border: #d0d0d0": "#343434", // graphql explorer
   "$border: #d3d6db": "#343434", // graphql explorer
@@ -223,7 +243,6 @@ module.exports.mappings = {
   "$border: #e6ebf1": "#343434",
   "$border: #e9e9e9": "#343434", // zenhub
   "$border: #eaeaea": "#343434",
-  "$border: #eee": "#343434",
   "$border: #f6f8fa": "#202020",
   "$border: #f8f8f8": "#343434",
   "$border: #2f363d": "#282828",
@@ -248,6 +267,7 @@ module.exports.mappings = {
   "box-shadow: 0 1px 0 0 rgba(16,116,231,.5)": "box-shadow: 0 1px 0 0 rgba(/*[[base-color-rgb]]*/, .5)",
 
   "box-shadow: inset 0 1px 0 rgba(225,228,232,.2)": "box-shadow: none",
+  "box-shadow: 0 1px 0 rgba(27,31,35,.1),inset 0 1px 0 hsla(0,0%,100%,.03)": "box-shadow: none",
   "box-shadow: inset 0 -1px 0 #959da5": "box-shadow: inset 0 -2px 0 #383838",
   // ==========================================================================
   // Color / Background
@@ -310,7 +330,7 @@ module.exports.mappings = {
 
   "color: #cce888": "color: /*[[base-color]]*/", // https://github.com/StylishThemes/GitHub-Dark/issues/954
 
-  "box-shadow: 0 0 10px rgba(121,184,255,.7)": "box-shadow: 0 0 rgba(/*[[base-color-rgb]]*/, .3)",
+  "box-shadow: 0 0 10px rgba(121,184,255,.7)": "box-shadow: 0 0 10px rgba(/*[[base-color-rgb]]*/, .3)",
 
   "$background: rgba(0,0,0,.8)": "#242424", // github hovercard
   "$border: rgba(0,0,0,.8)": "#242424", // github hovercard
@@ -320,4 +340,6 @@ module.exports.mappings = {
   "$background: none": "none",
   "$background: initial": "initial",
   "$background: transparent": "transparent",
+  "$border: transparent": "transparent",
+  "$border: currentcolor": "currentcolor",
 };

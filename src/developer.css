@@ -47,4 +47,28 @@
     background-image: none;
     border-color: /*[[base-color]]*/;
   }
+  .sub-nav ul a.active {
+    color: #c6c6c6;
+  }
+  .content .sectionbody .dlist dt, .content .verseblock-content,
+  .content dl code, .content h2 code, .content h3 code, .content h4 code,
+  .content ol code, .content p > tt, .content table code, .content ul code,
+  p code, pre {
+    border: 1px solid #343434;
+  }
+  .product {
+    color: #b186ee;
+  }
+  .pagination .disabled, .pagination .disabled:hover, .pagination .gap,
+  .pagination .gap:hover, .pagination [aria-disabled=true],
+  .pagination [aria-disabled=true]:hover {
+    color: #404040;
+    background-color: #181818;
+  }
+  .pagination a:focus, .pagination a:hover, .pagination em:focus,
+  .pagination em:hover, .pagination > span:focus, .pagination > span:hover {
+    background-color: #1e1e1e;
+    border-color: #343434;
+    text-decoration: none;
+  }
 }

@@ -13,7 +13,7 @@ node_modules: yarn.lock
 	@touch node_modules
 
 lint: node_modules
-	yarn -s run eslint --color .
+	yarn -s run eslint --color src/gen tools
 	yarn -s run stylelint --color src
 
 authors:
@@ -31,16 +31,16 @@ update: node_modules
 	yarn -s
 	@touch yarn.lock
 
-patch: node_modules lint
-	yarn -s run versions -pdC patch github-dark.user.css
+patch: node_modules lint build
+	yarn -s run versions -pdC patch $(wildcard *.user.css)
 	git push --tags origin master
 
-minor: node_modules lint
-	yarn -s run versions -pdC minor github-dark.user.css
+minor: node_modules lint build
+	yarn -s run versions -pdC minor $(wildcard *.user.css)
 	git push --tags origin master
 
-major: node_modules lint
-	yarn -s run versions -pdC major github-dark.user.css
+major: node_modules lint build
+	yarn -s run versions -pdC major $(wildcard *.user.css)
 	git push --tags origin master
 
 .PHONY: all test build deps lint authors clean install update patch minor major

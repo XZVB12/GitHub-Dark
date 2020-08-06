@@ -19,6 +19,19 @@
 </p>
 <h2 align="center">Your eyes will&nbsp;:heart:&nbsp;you.</h2>
 
+# TOC
+  * [Preview](#preview)
+  * [Installation](#installation)
+    * [Additional Userstyles](#additional-userstyles)
+    * [Supported GitHub Extensions](#supported-github-extensions)
+    * [Available Syntax Highlighting Themes](#available-syntax-highlighting-themes-demo)
+  * [Contributions and Development](#contributions-and-development)
+    * [Auto generated CSS](#auto-generated-css)
+    * [Manual override entries](#manual-override-entries)
+    * [Make targets](#make-targets)
+  * [Notes](#notes)
+
+
 ## Preview
 
 ![Preview of GitHub Dark](./images/screenshot.png)
@@ -30,6 +43,7 @@
 
 ## Additional Userstyles
 
+⚙️ [GitHub Custom Fonts](https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/github-custom-fonts.user.css)<br>
 ⚙️ [GitHub Blog Dark](https://github.com/StylishThemes/GitHub-Blog-Dark)<br>
 ⚙️ [GitHub Code Wrap](https://github.com/StylishThemes/GitHub-code-wrap)<br>
 ⚙️ [GitHub Commit Limit](https://github.com/StylishThemes/GitHub-Commit-Limit)<br>
@@ -46,6 +60,7 @@
 ⚙️ [GitHub Tab Size](https://github.com/StylishThemes/GitHub-tab-size)<br>
 ⚙️ [GitHub Custom Border Radii](https://github.com/StylishThemes/Feature-Override-Styles/blob/master/github-custom-border-radii.user.css)<br>
 ⚙️ [GitHub Dark Custom Blame usercss](https://raw.githubusercontent.com/StylishThemes/Feature-Override-Styles/master/github-dark-custom-blame.user.css)<br>
+⚙️ [GitHub Upstream BugFixes usercss](https://github.com/StylishThemes/GitHub-Upstream-BugFixes/raw/master/github-upstream-bugfixes.user.css)<br>
 ⚙️ [Overlay Scrollbars](https://github.com/StylishThemes/Overlay-Scrollbars)<br>
 
 ## Supported GitHub Extensions
@@ -113,6 +128,9 @@ If you would like to contribute to this repository, please...
 
 Then run `make deps` to install dependencies.
 
+⚠️ **Do not edit** the **`github-dark.user.css`** file.
+    All **changes are lost** on **`make build`**
+
 ### Auto generated CSS
 
 Contributing e.g unstyled items, sources, extensions, etc. to name a few.
@@ -151,6 +169,6 @@ Internal use only targets include:
 
 - If you're using a custom domain for GitHub Enterprise, be sure to include it through a `@-moz-document` rule (Firefox) or add it to the `Applies to` section in (Chrome). See
 
-- Any additions into `github-dark.user.css` are lost on `make build`
-
 Thanks to all our [contributors](./AUTHORS) so far! And thanks for the shoutout on the [JS Party](https://changelog.com/jsparty/20#transcript-71) podcast!
+
+[⬆️ UP](#toc)
