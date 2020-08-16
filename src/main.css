@@ -63,10 +63,10 @@
   /* Base color panel */
   option:hover, .listings-layout .nav li a:hover,
   #fork-select .target:not(.disabled):hover, table.upgrades tr:hover td,
-  .email-format .email-hidden-toggle:hover a, .dashboard-tabs a:hover,
-  .documentation-results a:hover, .hidden-text-expander a:hover,
-  .example-nav li a.selected, .issues-reset-query:hover .octicon-x,
-  .segmented-nav li.active, .diff-expander:hover, .owner-select-target:hover,
+  .dashboard-tabs a:hover, .documentation-results a:hover,
+  .hidden-text-expander a:hover, .example-nav li a.selected,
+  .issues-reset-query:hover .octicon-x, .segmented-nav li.active,
+  .diff-expander:hover, .owner-select-target:hover,
   .release-timeline-tags .expander-text:hover .expander-dots,
   .search-result-item.navigation-focus, .pull-request-link:hover,
   .issues-reset-query:hover .issues-reset-query-block, .result.selected,
@@ -74,7 +74,8 @@
   .discussion-item-changes-marker.is-unread .discussion-item-icon {
     background: /*[[base-color]]*/ !important;
   }
-  .diff-table button.add-line-comment, .add-line-comment {
+  .diff-table button.add-line-comment, .add-line-comment,
+  .email-format .email-hidden-toggle a:hover {
     background: /*[[base-color]]*/;
   }
   .context-button::after {
@@ -584,6 +585,12 @@
   .commit-form {
     background-color: var(--ghd-bg-color);
   }
+  .Popover-message.Box {
+    background-color: var(--ghd-bg-color);
+  }
+  .Popover-message.box-shadow-large {
+    box-shadow: 0 8px 24px rgba(24, 24, 24, .8) !important;
+  }
   .Popover-message--top-left::after {
     border-bottom-color: #181818 !important;
   }
@@ -644,7 +651,7 @@
     max-width: 250px !important;
   }
   /* override wrong gen bg color and assign var */
-  .timeline-comment-header {
+  .timeline-comment-header, .dropdown-menu {
     background-color: var(--ghd-bg-color);
   }
   /* tooltip - tooltipped */
@@ -702,7 +709,8 @@
   .graph-before-activity-overview, .access-form-wrapper,
   .border-right.border-bottom.border-left, .news .issues_labeled .border,
   table.pricing-table, .two-factor-steps, .project-column,
-  .gist-content .file-box, .branch-action-item.js-transitionable {
+  .gist-content .file-box, .branch-action-item.js-transitionable, .prose-diff,
+  .listgroup {
     background: #181818;
   }
   /* Expandable review boxes, rendered and loading */
@@ -1465,7 +1473,8 @@
   /* box shadow below attach box - https://github.com/StylishThemes/GitHub-Dark/releases/new */
   /* + remove box shadowns on buttons and the like */
   .upload-progress, .social-count, .btn, .btn-outline.disabled,
-  .btn-outline:disabled, .btn-outline[aria-disabled="true"] {
+  .btn-outline:disabled, .btn-outline[aria-disabled="true"], .btn:active,
+  .btn-blue:active {
     box-shadow: none;
   }
   /* https://github.com/team inline HTML fixes */
@@ -1982,10 +1991,7 @@
   }
   /* add border */
   .issues-list, .pulls-list-group, .branch-infobar,
-  .pagehead.repohead h1 .repo-label span, .menu, .api pre {
-    border: 1px solid #484848 !important;
-  }
-  .coupon-icon {
+  .pagehead.repohead h1 .repo-label span, .api pre, .coupon-icon {
     border: 1px solid #484848;
   }
   #graph-shots li > p, .logo-box, .branch-infobar, #com hr,
