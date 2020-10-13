@@ -21,12 +21,17 @@ module.exports.mappings = {
   "$color: rgba(149,157,165,.2)": "rgba(0,0,0,.2)", // modal backdrop
   "$color: rgba(149,157,165,.3)": "rgba(0,0,0,.3)", // .box-shadow-extra-large
   "$color: rgba(149,157,165,.15)": "rgba(0,0,0,.15)", // .box-shadow-medium
-  "$color: rgba(0,0,0,0.2)": "rgba(255,255,255,0.7)",
-  "$color: hsla(0,0%,100%,.8)": "hsla(0,0%,100%,.8)",
+  "$color: rgba(0,0,0,0.2)": "rgba(255,255,255,.7)",
+  "$color: hsla(0,0%,100%,.875)": "hsla(0,0%,0%,.875)",
+  "$color: hsla(0,0%,100%,.8)": "hsla(0,0%,0%,.8)",
   "$color: hsla(0,0%,100%,.6)": "hsla(0,0%,0%,.6)",
   "$color: hsla(0,0%,100%,.5)": "hsla(0,0%,0%,.5)",
+  "$color: hsla(0,0%,100%,.2)": "hsla(0,0%,0%,.2)",
   "$color: hsla(0,0%,100%,.125)": "hsla(0,0%,0%,.125)",
   "$color: hsla(0,0%,100%,.05)": "hsla(0,0%,0%,.05)",
+  "color: hsla(0,0%,100%,.875)": "color: hsla(0,0%,100%,.125)",
+  "color: hsla(0,0%,100%,.8)": "color: hsla(0,0%,100%,.2)",
+  "color: hsla(0,0%,100%,.6)": "color: hsla(0,0%,100%,.4)",
 
   "$background: #fff": "#181818",
   "$border: #fff": "var(--ghd-bg-color)",
@@ -43,13 +48,16 @@ module.exports.mappings = {
   "$color: #eaecef": "#343434",
   "$color: #e1e4e8": "#343434",
   "$color: #e0e0e0": "#343434",
-  "$color: #dfe2e5": "#343434",
-  "$color: #dddddd": "#343434",
-  "$color: #d8dee2": "#343434",
+  "$color: #dfe2e5": "#404040",
+  "$color: #dddddd": "#404040",
+  "$color: #d8dee2": "#404040",
   "$color: #d1d5da": "#404040",
   "$color: #c6cbd1": "#505050",
   "$color: #cccccc": "#5a5a5a",
+  "$color: #cfcfcf": "#5a5a5a",
   "$color: #bbbbbb": "#606060",
+  "$color: #999999": "#505050",
+  "$color: #24292e": "#181818", // actions
 
   // #444d56 is used for various dark-ish parts like actions. only invert text color for it
   "color: #444d56": "color: #afafaf", // .full-commit .commit-desc pre
@@ -93,15 +101,18 @@ module.exports.mappings = {
   "$color: #d2dff0": "#224466", // org discussion reactions
 
   // red
+  "$color: rgba(158,28,35,.6)": "rgba(255,68,68,.6)", // .flash-error .octicon
   "$color: rgba(203,36,49,.4)": "rgba(255,68,68,.4)",
+  "$color: rgba(158,28,35,.2)": "rgba(255,68,68,.2)",
   "$color: #86181d": "#d82828",
   "$color: #b11a04": "#d82828", // graphql explorer
   "$color: #cb2431": "#d82828",
   "$color: #d73a49": "#d82828",
   "$color: #cea0a5": "#d82828",
   "$color: #f97583": "#f88",
-  "$color: #ffeef0": "#300",
   "$color: #ffdce0": "#300",
+  "$color: #ffe3e6": "#300",
+  "$color: #ffeef0": "#300",
 
   // orange
   "$color: #a04100": "#f3582c",
@@ -152,6 +163,7 @@ module.exports.mappings = {
   "$color: #94d3a2": "#040", // .btn-primary.disabled
   "$color: #a2cbac": "#040",
   "$color: #dcffe4": "#002800",
+  "$color: #e6ffed": "#002800",
   "$color: #f0fff4": "#002800",
 
   // purple
@@ -196,7 +208,6 @@ module.exports.mappings = {
   "$background: #6a737d": "#444",
   "$background: #586069": "#343434",
   "$background: #2f363d": "#222",
-  "$background: #24292e": "#181818",
   "$background: #3c4146": "#181818",
   "$background: #f0f5fa": "#202020",
   "$background: #f8fafd": "#202020",
@@ -268,7 +279,9 @@ module.exports.mappings = {
 
   "box-shadow: inset 0 1px 0 rgba(225,228,232,.2)": "box-shadow: none",
   "box-shadow: 0 1px 0 rgba(27,31,35,.1),inset 0 1px 0 hsla(0,0%,100%,.03)": "box-shadow: none",
+  "box-shadow: 0 1px 0 rgba(27,31,35,.04),inset 0 1px 0 rgba(255,255,255,.25)": "box-shadow: none",
   "box-shadow: inset 0 -1px 0 #959da5": "box-shadow: inset 0 -2px 0 #383838",
+  "box-shadow: 0 8px 24px rgba(0,0,0,.2)": "box-shadow: 0 8px 24px rgba(0,0,0,.4)",
   // ==========================================================================
   // Color / Background
   // ==========================================================================
