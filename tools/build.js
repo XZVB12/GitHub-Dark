@@ -8,20 +8,8 @@ const {readFile} = require("fs").promises;
 const {resolve, basename} = require("path");
 const cssnano = require("cssnano");
 
-const {mappings} = require("../src/gen/mappings");
-const {sources} = require("../src/gen/sources");
-const {ignores} = require("../src/gen/ignores");
 const {version} = require("../package.json");
 const {writeFile, exit, glob} = require("./utils");
-
-const remapOpts = {
-  ignoreSelectors: ignores,
-  indentCss: 2,
-  lineLength: 76,
-  comments: true,
-  stylistic: true,
-  validate: true,
-};
 
 const sourceFiles = glob("src/*.css").sort((a, b) => {
   if (a.endsWith("vars.css")) return -1;
@@ -30,17 +18,15 @@ const sourceFiles = glob("src/*.css").sort((a, b) => {
   if (b.endsWith("main.css")) return 1;
 }).filter(file => basename(file) !== "template.css");
 
-const minify = async css => {
-  const result = await cssnano.process(css, {from: undefined});
-  return result.css;
-};
+const minify = async css => (await cssnano.process(css, {from: undefined})).css;
 
 function replaceCSSMatches(css) {
   return css.replace(/:is\(([^)]+)\)\s([^,{]+)(,|{)/gm, (_, matches, selector, separator) => {
+    const parts = matches.split(/\s*,\s*/);
+    const last = parts.length - 1;
+
     let result = "";
-    const m = matches.split(/\s*,\s*/);
-    const last = m.length - 1;
-    m.forEach((match, index) => {
+    parts.forEach((match, index) => {
       result += `${match} ${selector.trim()}${index >= last && separator === "{" ? " {" : ", "}`;
     });
     return result;
@@ -55,10 +41,8 @@ function sortThemes(a, b) {
 
 function extractThemeName(css) {
   return css
-    .substring(3, css.indexOf("*/"))
-    .trim()
-    // remove group (e.g. "GitHub: ")
-    .replace(/^.+:\s/, "");
+    .substring(3, css.indexOf("*/")).trim()
+    .replace(/^.+:\s/, ""); // remove group (e.g. "GitHub: ")
 }
 
 async function getThemes() {
@@ -80,6 +64,21 @@ async function getThemes() {
 }
 
 async function main() {
+  const [mappings, ignores, sources] = await Promise.all([
+    require("../src/gen/mappings")(),
+    require("../src/gen/ignores")(),
+    require("../src/gen/sources")(),
+  ]);
+
+  const remapOpts = {
+    ignoreSelectors: ignores,
+    indentCss: 2,
+    lineLength: 76,
+    comments: false,
+    stylistic: true,
+    validate: true,
+  };
+
   let css = await readFile(resolve(__dirname, "../src/template.css"), "utf8");
   css = `${css.trim().replace("{{version}}", version)}\n`;
 
@@ -101,8 +100,9 @@ async function main() {
     for (let [index, section] of Object.entries(sections)) {
       const source = sources[Number(index)];
       if (basename(source.file) === basename(sourceFile)) {
-        // create replacement regex
-        section = `  /* begin ${source.name} rules */\n${section}\n  /* end ${source.name} rules */`;
+        const prefix = `  /* begin ${source.name} rules */`;
+        const suffix = `  /* end ${source.name} rules */`;
+        section = `${prefix}\n${section}\n${suffix}`;
         const re = new RegExp(`.*generated ${esc(source.name)} rules.*`, "gm");
         sourceCss = sourceCss.replace(re, section);
       }

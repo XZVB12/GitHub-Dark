@@ -39,7 +39,7 @@
 ## Installation
 
 1. Install [Stylus for Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/) or [Cascadea for Safari](https://cascadea.app/).
-2. Install [github-dark.user.css](https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/github-dark.user.css).
+2. [Click here to install the](https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/github-dark.user.css) github-dark.user.css.
 
 ## Additional Userstyles
 
@@ -82,12 +82,13 @@
 
 | Theme                      |   GitHub    |  CodeMirror  |    Jupyter   |
 |----------------------------|:-----------:|:------------:|:------------:|
+| Ayu Mirage                 |      ✔️     |      ❌     |      ❌      |
 | Ambiance                   |      ✔️     |      ✔️     |      ❌      |
 | Base16 Ocean Dark          |      ❌     |      ✔️     |      ✔️      |
 | Chaos                      |      ✔️     |      ❌     |      ❌      |
 | Clouds Midnight            |      ✔️     |      ❌     |      ❌      |
 | Cobalt                     |      ✔️     |      ✔️     |      ❌      |
-| Dracula                    |      ❌     |      ✔️     |      ✔️      |
+| Dracula                    |      ✔️     |      ✔️     |      ✔️      |
 | GitHub Dark                |      ✔️     |      ❌     |      ✔️      |
 | Idle Fingers               |      ✔️     |      ❌     |      ✔️      |
 | Kr Theme                   |      ✔️     |      ❌     |      ❌      |
@@ -127,10 +128,9 @@ If you would like to contribute to this repository, please...
 - [`yarn`](https://classic.yarnpkg.com/en/docs/install/): version 1
 - `make`: available with UNIX-like OS, on Windows you can use [this](https://stackoverflow.com/a/54086635/808699)
 
-Then run `make deps` to install dependencies.
+3. run `make build install` to rebuild the style and install in the default browser.
 
-⚠️ **Do not edit** the **`github-dark.user.css`** file.
-    All **changes are lost** on **`make build`**
+Any custom changes should be done in the files in the `src` directory. Do not edit the `.css` files in the project root, these are generated.
 
 ### Auto-generated CSS
 
