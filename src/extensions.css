@@ -1,10 +1,11 @@
-@-moz-document regexp("^https?://((education|graphql|guides|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!(generated_pages)).)*$"), domain("gist.github.com") {
+@-moz-document regexp("^https?://((education|graphql|guides|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!(sponsors)).)*$"), domain("gist.github.com") {
   /* generated refined-github rules */
   /* generated zenhub rules */
   /* generated github-hovercard rules */
   /* generated gitako rules */
   /* generated npmhub rules */
   /* generated notifications-preview rules */
+  /* generated octotree rules */
   /* Refined GitHub - https://github.com/sindresorhus/refined-github
    * See #540
    * See #881 */
@@ -12,19 +13,19 @@
   .refined-github-diff-signs .blob-code-deletion::before {
     color: #7b7b7b !important;
   }
-  .refined-github .dashboard .border-gray.flex-items-baseline.py-3,
-  .refined-github .dashboard .js-all-activity-header + div {
-    background: #181818 !important;
-  }
-  .refined-github .dashboard .js-all-activity-header + div {
-    border-color: #343434 !important;
-  }
   /* https://github.com/StylishThemes/GitHub-Dark/issues/1035 */
   .refined-github .reaction-summary-item.user-has-reacted {
     --background: transparent !important;
   }
   .refined-github .reaction-summary-item a {
     box-shadow: none;
+  }
+  /* https://github.com/StylishThemes/GitHub-Dark/issues/1271 */
+  .refined-github [data-rgh-whitespace="tab"] {
+    background-image: url('data:image/svg+xml,%3Csvg preserveAspectRatio="xMinYMid meet" viewBox="0 0 12 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M9.5 10.44L6.62 8.12L7.32 7.26L12.04 11V11.44L7.28 14.9L6.62 13.9L9.48 11.78H0V10.44H9.5Z" fill="rgba(95,90,96,60%)"/%3E%3C/svg%3E');
+  }
+  .refined-github [data-rgh-whitespace="space"] {
+    background-image: url('data:image/svg+xml,%3Csvg preserveAspectRatio="xMinYMid meet" viewBox="0 0 12 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M4.5 11C4.5 10.1716 5.17157 9.5 6 9.5C6.82843 9.5 7.5 10.1716 7.5 11C7.5 11.8284 6.82843 12.5 6 12.5C5.17157 12.5 4.5 11.8284 4.5 11Z" fill="rgba(95,90,96,60%)"/%3E%3C/svg%3E');
   }
   /* https://github.com/musically-ut/lovely-forks */
   .lovely-forks-addon {
@@ -86,49 +87,13 @@
     margin-top: -8px;
   }
   /* octotree */
-  .octotree-sidebar {
+  .octotree-sidebar.octotree-github-sidebar .octotree-views .octotree-view .octotree-view-header {
     background: #181818 !important;
-    border-color: #343434 !important;
+    border-right-color: #343434 !important;
+    border-bottom: 1px solid #343434 !important;
   }
-  .octotree-views, .octotree-sidebar .octotree-bottom {
-    background: #181818 !important;
-    border-color: #484848 !important;
-  }
-  .octotree-toggle:hover {
-    background: linear-gradient(#303030, #282828) !important;
-    border-color: #484848 !important;
-  }
-  .octotree-view-header, .octotree-toggle {
-    background: linear-gradient(#202020, #181818) !important;
-    border-color: #383838 !important;
-  }
-  .octotree-github-sidebar a.octotree-toggle,
-  a.octotree-toggle:not(.octotree-loading):hover > span::after {
-    color: #dcdcdc !important;
-  }
-  .octotree-github-sidebar a.octotree-opts .settings::before,
-  .octotree-help > span::before, .octotree-patch-files {
-    color: #bebebe !important;
-  }
-  .octotree-views .octotree-treeview .jstree-anchor .jstree-icon.tree::before,
-  .octotree-github-sidebar a.octotree-toggle:hover,
-  .octotree-github-sidebar a.octotree-opts:hover .settings::before,
-  .octotree-github-sidebar a.octotree-opts.selected:hover .settings::before,
-  .octotree-sidebar.octotree-github-sidebar .octotree-views .octotree-tree-view .jstree .jstree-anchor,
-  .octotree-github-sidebar a.octotree-toggle:not(.octotree-loading):hover,
-  .octotree-sidebar.octotree-github-sidebar .octotree-views .octotree-view,
-  .octotree-sidebar.octotree-github-sidebar .octotree-toggle > span,
-  .octotree-sidebar.octotree-github-sidebar .octotree-toggle > .octotree-toggle-icon::before {
-    color: /*[[base-color]]*/ !important;
-  }
-  .octotree-sidebar.octotree-github-sidebar .octotree-toggle .popup {
-    background-color: #181818 !important;
-    border-color: #404040 !important;
-    box-shadow: 0 1px 15px #000 !important;
-  }
-  .octotree-sidebar.octotree-github-sidebar .octotree-toggle .popup > .arrow,
-  .octotree-sidebar.octotree-github-sidebar .octotree-toggle .popup > .arrow::after {
-    border-bottom-color: #404040 !important;
+  .octotree-sidebar.octotree-github-sidebar .octotree-toggle {
+    box-shadow: none !important;
   }
   /* Github User Info userscript - see #481 */
   .GithubUserInfo, .GithubUserInfo > div {
@@ -151,6 +116,13 @@
   .notifications-dropdown-arrow {
     border-bottom-color: #333 !important;
   }
+  /* Notification-preview */
+  .NPG-dropdown .notifications-list-item.notification-unread {
+    background: #181818 !important;
+  }
+  :root:root .NPG-dropdown .notifications-list-item:hover .notification-list-item-actions .btn:hover {
+    background: /*[[base-color]]*/ !important;
+  }
   /* https://github.com/StylishThemes/GitHub-Dark/issues/1198 */
   .overall-summary {
     background: #181818;
@@ -158,8 +130,5 @@
   /* Sourcegraph - CodeLine Hover Color In Blob */
   table > tbody > tr > td[style="background-color: khaki;"] {
     background-color: #ffcc0050 !important;
-  }
-  html.refined-github .rgh-recently-pushed-branches [data-url$="recently_touched_branches_list"] .Box {
-    border-color: #343434 !important;
   }
 }

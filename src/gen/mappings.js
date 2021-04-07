@@ -94,6 +94,7 @@ module.exports = async () => ({
   "$value: #dddddd": "#343434",
   "$value: #dfe2e5": "#343434",
   "$value: #e0e0e0": "#343434", // graphql explorer
+  "$value: #e0e4e7": "#343434", // octotree
   "$value: #e1e4e8": "#343434",
   "$value: #e5e5e5": "#343434",
   "$value: #e6ebf1": "#343434",
@@ -108,6 +109,7 @@ module.exports = async () => ({
   "$value: #eff3f6": "#242424",
   "$value: #f0f3f6": "#242424",
   "$value: #f0f5fa": "#202020",
+  "$value: #f2f5f7": "#202020", // octotree
   "$value: #f3f4f6": "#242424",
   "$value: #f4f4f4": "#242424",
   "$value: #f4f5f5": "#242424", // zenhub
@@ -127,6 +129,9 @@ module.exports = async () => ({
   "$value: rgba(3, 47, 98, 0.55)": "/*[[base-color]]*/", // gitako
   "$value: rgba(3,102,214,.3)": "rgba(/*[[base-color-rgb]]*/, .3)",
   "$value: rgba(3,102,214,.5)": "rgba(/*[[base-color-rgb]]*/, .5)",
+  "$value: #0f2e47": "/*[[base-color]]*/", // octotree
+  "$value: #234766": "/*[[base-color]]*/", // gist logged out banner
+  "$value: #044289": "rgba(/*[[base-color-rgb]]*/, .5)", // help sidebar
   "$value: #0058a2": "/*[[base-color]]*/",
   "$value: #005b9e": "/*[[base-color]]*/",
   "$value: #005cc2": "/*[[base-color]]*/",
@@ -135,16 +140,16 @@ module.exports = async () => ({
   "$value: #0361cc": "/*[[base-color]]*/",
   "$value: #0366d6": "/*[[base-color]]*/", // gitako
   "$value: #0366d6d0": "/*[[base-color]]*/", // gitako
-  "$value: #044289": "rgba(/*[[base-color-rgb]]*/, .5)", // help sidebar
   "$value: #0679fc": "/*[[base-color]]*/",
   "$value: #1074e7": "/*[[base-color]]*/",
   "$value: #1f61a0": "/*[[base-color]]*/",
   "$value: #2a65a0": "/*[[base-color]]*/",
-  "$value: #234766": "/*[[base-color]]*/", // gist logged out banner
   "$value: #3072b3": "/*[[base-color]]*/",
   "$value: #327fc7": "/*[[base-color]]*/",
+  "$value: #6cb5fe": "/*[[base-color]]*/",  // octotree
   "$value: #3b5998": "/*[[base-color]]*/",
   "$value: #4183c4": "/*[[base-color]]*/",
+  "$value: #04a9ff": "/*[[base-color]]*/", // octotree
   "$value: #4a9eff": "/*[[base-color]]*/",
   "$value: #54a3ff": "/*[[base-color]]*/", // notification icon
   "$value: #599bcd": "/*[[base-color]]*/",
@@ -215,10 +220,10 @@ module.exports = async () => ({
   "$value: #dca874": "#cb4",
   "$value: #f9c513": "#cb4",
   "$value: #ffd33d": "#cb4",
-  "$value: #ffdf5d": "#542",
-  "$value: #ffea7f": "#542",
-  "$value: #e5d999": "#542",
-  "$value: #d9d0a5": "#542",
+  "$value: #ffdf5d": "#cb4",
+  "$value: #ffea7f": "#cb4",
+  "$value: #e5d999": "#cb4",
+  "$value: #d9d0a5": "#cb4",
   "$value: #ffe3c8": "#261d08",
   "$value: #faebcc": "#261d08", // zenhub
   "$value: #fcf9e4": "#261d08", // zenhub blocked banner
@@ -258,8 +263,10 @@ module.exports = async () => ({
   "$value: #4c2889": "#9378ba",
   "$value: #5a32a3": "#73589a",
   "$value: #6f42c1": "#73589a",
-  "$value: #8a63d2": "#53387a",
+  "$value: #6e40c9": "#73589a", // graphql explorer
   "$value: #8b2bb9": "#53387a", // graphql explorer
+  "$value: #8957e5": "#53387a",
+  "$value: #8a63d2": "#53387a",
   "$value: #b392f0": "#53387a",
   "$value: #d1bcf9": "#53387a",
   "$value: #d5c8ed": "#53387a",
@@ -423,6 +430,4 @@ module.exports = async () => ({
   "$background: initial": "initial",
   "$background: transparent": "transparent",
   "$border: currentcolor": "currentcolor",
-  "$value: var(--color-border-primary)": "var(--color-border-primary)",
-  "$value: var(--color-auto-blue-4)": "var(--color-auto-blue-4)",
 });

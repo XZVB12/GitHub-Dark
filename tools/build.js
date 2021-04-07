@@ -12,10 +12,12 @@ const {version} = require("../package.json");
 const {writeFile, exit, glob} = require("./utils");
 
 const sourceFiles = glob("src/*.css").sort((a, b) => {
-  if (a.endsWith("vars.css")) return -1;
-  if (b.endsWith("vars.css")) return 1;
+  // main first
   if (a.endsWith("main.css")) return -1;
   if (b.endsWith("main.css")) return 1;
+  // vars last
+  if (a.endsWith("vars.css")) return 1;
+  if (b.endsWith("vars.css")) return -1;
 }).filter(file => basename(file) !== "template.css");
 
 const minify = async css => (await cssnano.process(css, {from: undefined})).css;
@@ -26,16 +28,17 @@ function replaceCSSMatches(css) {
     const last = parts.length - 1;
 
     let result = "";
-    parts.forEach((match, index) => {
+    for (const [index, match] of parts.entries()) {
       result += `${match} ${selector.trim()}${index >= last && separator === "{" ? " {" : ", "}`;
-    });
+    }
+
     return result;
   });
 }
 
 function sortThemes(a, b) {
-  if (/twilight/i.exec(a)) return -1;
-  if (/twilight/i.exec(b)) return 1;
+  if (/twilight/i.test(a)) return -1;
+  if (/twilight/i.test(b)) return 1;
   return a.localeCompare(b);
 }
 

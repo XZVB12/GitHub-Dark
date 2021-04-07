@@ -1,13 +1,10 @@
-@-moz-document regexp("^https?://((education|graphql|guides|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!(generated_pages)).)*$"), domain("githubusercontent.com"), domain("www.githubstatus.com") {
+@-moz-document regexp("^https?://((education|graphql|guides|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!(sponsors)).)*$"), domain("githubusercontent.com"), domain("www.githubstatus.com") {
   button {
     color: #b5b5b5;
   }
   /* https://github.com/StylishThemes/GitHub-Dark/issues/968 */
   input, textarea {
     color: #c6c6c6;
-  }
-  svg {
-    fill: #c6c6c6;
   }
   svg[fill="none"] {
     fill: none;
@@ -27,7 +24,7 @@
   }
   /* generated github-mobile rules */
   /* generated github.com rules */
-  body, body.bg-gray, .color-bg-canvas-inset {
+  body, body.bg-gray {
     color: var(--ghd-body-color);
     background-color: var(--ghd-bg-color) !important;
     background-image: var(--ghd-bg-img) !important;
@@ -35,6 +32,9 @@
     background-origin: padding-box !important;
     background-attachment: /*[[bg-attachment]]*/ !important;
     /*[[bg-options]]*/
+  }
+  .application-main > .color-bg-canvas-inset {
+    background: transparent !important;
   }
   /* Base link colors */
   table.files .octicon-file-directory,
@@ -44,7 +44,8 @@
   .notifications.list-group a:hover, a.octolinker-link[href], .commit-id:hover,
   body[class="page-responsive"] .files-list .octicon,
   .timeline-comment-action:hover, .Header-link[data-ga-click]:focus,
-  .Header-link[data-ga-click]:hover, .btn-link .octicon-kebab-horizontal:hover {
+  .Header-link[data-ga-click]:hover, .btn-link .octicon-kebab-horizontal:hover,
+  .Header-link:hover, .Header-link:focus {
     color: /*[[base-color]]*/;
   }
   .text-gray-light.btn-octicon:hover .octicon-kebab-horizontal {
@@ -59,6 +60,9 @@
   }
   body.api li a:active code, body.api li a:hover code {
     color: rgba(/*[[base-color-rgb]]*/, 1) !important;
+  }
+  .hidden-text-expander .hx_bg-black-fade-15 {
+    background: #343434;
   }
   /* Base color panel */
   option:hover, .listings-layout .nav li a:hover,
@@ -185,7 +189,6 @@
   .ajax-pagination-btn:focus, input[type="checkbox"]:focus,
   div.search-form input:focus, #search > input[name="q"]:focus {
     border-color: /*[[base-color]]*/ !important;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075), 0 0 2px /*[[base-color]]*/ !important;
     outline-color: /*[[base-color]]*/ !important;
   }
   /* add border to site search field */
@@ -232,21 +235,21 @@
     background-size: cover !important;
   }
   input[type="checkbox"]:checked:disabled {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 0h512v512H0z" fill="%23282828"/><path fill="%23555" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') !important;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 0h512v512H0z" fill="%23282828"/><path fill="%23aaa" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/></svg>') !important;
   }
   input[type="checkbox"]:indeterminate {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="%23000"/><rect x="64" y="192" width="384" height="128" fill="%23ddd"/></svg>') !important;
     background-size: cover !important;
   }
   input[type="checkbox"]:indeterminate:disabled {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="%23282828"/><rect x="64" y="192" width="384" height="128" fill="%23555"/></svg>') !important;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="%23282828"/><rect x="64" y="192" width="384" height="128" fill="%23aaa"/></svg>') !important;
   }
   input[type="radio"]:checked {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="%23000"/><circle cx="256" cy="256" r="96" fill="%23ddd"/></svg>') !important;
     background-size: cover !important;
   }
   input[type="radio"]:checked:disabled {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="%23282828"/><circle cx="256" cy="256" r="96" fill="%23555"/></svg>') !important;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="%23282828"/><circle cx="256" cy="256" r="96" fill="%23aaa"/></svg>') !important;
   }
   /*[[tab-size]]*/
   /* User time line firsts */
@@ -289,6 +292,15 @@
   .issue-card-label[style*=" color: #0"] {
     color: #181818 !important;
   }
+  /* Fix GitHub's weird dark mode labels by reverting them to light mode values */
+  .hx_IssueLabel {
+    --lightness-threshold: .453 !important;
+    --border-threshold: .96 !important;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1)) !important;
+    background: rgb(var(--label-r), var(--label-g), var(--label-b)) !important;
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%)) !important;
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha)) !important;
+  }
   /* Tooltip on contribution calendar */
   .svg-tip {
     color: #949494;
@@ -308,15 +320,8 @@
   .project-card code {
     padding: .2em .4em;
   }
-  .markdown-body pre code, .markdown-body pre tt {
-    padding: .2em 0 !important;
-    border: none !important;
-  }
-  .markdown-body code::before, .markdown-body code::after,
-  .markdown-body tt::before, .markdown-body tt::after,
-  .markdown-body pre code::before, .markdown-body pre code::after,
-  .markdown-body pre tt::before, .markdown-body pre tt::after {
-    display: none !important;
+  .markdown-title code {
+    background: #2d2d2d;
   }
   .intgrs-lstng-item-description::after {
     background-image: linear-gradient(to right, rgba(24, 24, 24, 0), #181818 80%) !important;
@@ -424,11 +429,6 @@
   .swipe .swipe-frame .swipe-bar .bottom-handle {
     left: -6px !important;
   }
-  /* GitHub Bug: Center color preview in inline code tags  */
-  .markdown-body code .v-align-middle {
-    position: relative;
-    top: -1px;
-  }
   /* GitHub Bug: Stop commit message field from resizing horizontally */
   #commit-description-textarea {
     resize: vertical !important;
@@ -471,6 +471,16 @@
   .comment-body .blob-wrapper > table {
     width: 100%;
   }
+  /* GitHub Bug: Vertically center labels on issue lists and add some margin */
+  .Box-row .labels {
+    vertical-align: middle;
+    margin-left: .25rem;
+  }
+  /* GitHub Bug: Remove vertical padding on code suggestions diffs */
+  .js-comment-body .blob-code-inner.py-1 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
   /* Opinionated: Remove excessive box padding and adjust avatars to match */
   .Box-row, .Box-header, .Box-body {
     padding: 8px 12px;
@@ -478,12 +488,20 @@
   .file-header {
     padding: 4px 6px;
   }
+  .js-code-editor .file-header {
+    padding: 5px 10px;
+  }
   /* https://github.com/vednoc/userstyles.world */
   /* https://github.com/vednoc/userstyles.world/blob/main/themes */
   /* https://github.com/vednoc/userstyles.world/blob/main/themes/.gitkeep */
   .avatar[width="24"], .avatar-user[width="24"] {
     width: 20px;
     height: 20px;
+  }
+  .AvatarStack .avatar {
+    width: 20px !important;
+    height: 20px !important;
+    overflow: visible !important;
   }
   .Box-header .avatar[width="24"], .Box-header .avatar-user[width="24"] {
     position: relative;
@@ -526,6 +544,11 @@
   /* "Code" button on repo */
   .btn-primary .octicon {
     color: inherit;
+  }
+  .btn-primary.disabled, .btn-primary:disabled,
+  .btn-primary[aria-disabled="true"], .btn.disabled, .btn:disabled,
+  .btn[aria-disabled="true"] {
+    color: var(--color-icon-tertiary);
   }
   /* topic tags */
   .topic-tag {
@@ -596,10 +619,8 @@
   .follow-list .follow-list-item {
     border-bottom: 1px solid #343434 !important;
   }
-  .branch-action-state-closed-dirty .branch-action-body::before,
-  .branch-action-state-dirty .branch-action-body::before,
-  .is-rebasing .branch-action-state-dirty-if-rebasing .branch-action-body::before {
-    border-right-color: #343434;
+  .branch-action-body::after {
+    border-right-color: #181818 !important;
   }
   .branch-action-state-closed-dirty .branch-action-icon,
   .branch-action-state-dirty .branch-action-icon,
@@ -623,14 +644,20 @@
     filter: invert(1) hue-rotate(180deg);
     mix-blend-mode: exclusion;
   }
+  .actions-workflow-navigation .row-selected {
+    background: #343434;
+  }
   .release .markdown-body img {
     background: none;
   }
   .js-profile-timeline-year-list {
     background: none !important;
   }
-  .contribution-activity-listing .color-bg-primary {
-    background: var(--ghd-bg-color) !important;
+  .contribution-activity-listing .Progress {
+    background: none !important;
+  }
+  .contribution-activity-listing .Progress-item {
+    background: /*[[base-color]]*/ !important;
   }
   .discussion-timeline-actions {
     border-top: 2px solid #383838 !important;
@@ -652,7 +679,7 @@
     border-left: 1px solid #333 !important;
     border-right: 1px solid #333 !important;
   }
-  .branch-action-body::before, .MarketplaceSideNav, .plans-card-text:first-child {
+  .MarketplaceSideNav, .plans-card-text:first-child {
     border-right-color: #484848 !important;
   }
   /* fix commit form bg color */
@@ -697,14 +724,23 @@
   .file-header {
     background: #202020 !important;
   }
+  .js-new-comment-form .previewable-comment-form .tabnav-tab.selected,
+  .js-new-comment-form .previewable-comment-form .tabnav-tab[aria-current]:not([aria-current="false"]),
+  .js-new-comment-form .previewable-comment-form .tabnav-tab[aria-selected="true"],
+  .timeline-new-comment .timeline-comment,
+  .timeline-new-comment .tabnav-tab.selected,
+  .timeline-new-comment .tabnav-tab[aria-current]:not([aria-current="false"]),
+  .timeline-new-comment .tabnav-tab[aria-selected="true"],
+  .previewable-comment-form .comment-form-head.tabnav,
+  .timeline-comment.current-user.is-comment-editing {
+    background: #1b1b1b !important;
+  }
+  .new-discussion-timeline .composer .comment-form-head.tabnav {
+    background: #202020;
+  }
   .pagehead-tabs-item.selected, .reponav-item.selected, .tabnav-tab.selected {
     background: #202020;
     border-bottom-color: #202020 !important;
-  }
-  .timeline-comment .tabnav-tab.selected,
-  .comment-form-head .tabnav-tab.selected {
-    background: #181818 !important;
-    border-bottom-color: #181818 !important;
   }
   .branches .branch-summary + .branch-summary {
     border-top-color: #333 !important;
@@ -778,11 +814,11 @@
     background: #181818;
     border-color: #484848 !important;
   }
-  .Box-row--hover-blue, .dashboard-sidebar, .tint-box, .capped-card-content,
-  .table-list-item, .pinned-issue-item, .review-comment, .line-comments,
-  .js-notice > .border:not(.bg-blue-light), .js-notice.border, #projects-results,
-  .pr-toolbar.is-stuck, .pinned-issue-item, .pinned-item-list-item,
-  article.border.rounded-1, #search-member, .sidebar-progress-bar > .d-flex,
+  .dashboard-sidebar, .tint-box, .capped-card-content, .table-list-item,
+  .pinned-issue-item, .line-comments, .js-notice > .border:not(.bg-blue-light),
+  .js-notice.border, #projects-results, .pr-toolbar.is-stuck, .pinned-issue-item,
+  .pinned-item-list-item, article.border.rounded-1, #search-member,
+  .sidebar-progress-bar > .d-flex,
   .pagination-loader-container .discussion-item-header .border,
   #wiki-footer .border-dashed, #wiki-rightbar .border-dashed,
   .profile-timeline-card, .avatar-before-user-status,
@@ -790,7 +826,8 @@
   .border-right.border-bottom.border-left, .news .issues_labeled .border,
   table.pricing-table, .two-factor-steps, .project-column,
   .branch-action-item.js-transitionable, .prose-diff, .listgroup,
-  .repository-og-image:not([style*="background-image"]) {
+  .repository-og-image:not([style*="background-image"]),
+  .thread-subscription-status {
     background: #181818;
   }
   /* Expandable review boxes, rendered and loading */
@@ -975,11 +1012,10 @@
   .showcase-page-pattern::after, .description-inline, .result-group a,
   .border-wrap, a.feed-icon, .session-device,
   .boxed-group-list > li.session-device:hover,
-  .merge-status-item .merge-status-icon,
-  .js-release-form .comment-form-head.tabnav, .project-columns, .project-header,
+  .merge-status-item .merge-status-icon, .project-columns, .project-header,
   .user-profile-nav, .profile-timeline-year-list.bg-white,
   .discussion-item-review .timeline-comment, .libraries-jumbotron,
-  .menu-item.selected, .bg-shade-gradient, .dev-hero,
+  .bg-shade-gradient, .dev-hero,
   .render-container.is-render-ready.is-render-requested:not(.is-render-failed),
   .user-list li em, .api table, .dashboard-notice .coupon, .release-label,
   .oauth-org-access-details .oauth-org-item.on, .MarketplaceSideNav,
@@ -994,7 +1030,6 @@
   section[style="background-color: #fafbfc;"], div[style="background:#fafbfc;"],
   .team-left-column, .render-container.js-actions-page,
   .deployments-timeline-icon, .TimelineItem--condensed .TimelineItem-badge,
-  .previewable-comment-form .comment-form-head.tabnav.bg-white,
   .notification-navigation, .check-annotation code pre,
   .merge-status-item > [style*="#fff"], .pagehead, .pagehead nav {
     background: none !important;
@@ -1073,6 +1108,26 @@
   .contrib-legend .legend li {
     box-shadow: none !important;
   }
+  .contrib-legend [style*="#ebedf0"], .calendar-graph [fill="#ebedf0"] {
+    background: var(--color-calendar-graph-day-bg) !important;
+    fill: var(--color-calendar-graph-day-bg) !important;
+  }
+  .contrib-legend [style*="#9be9a8"], .calendar-graph [fill="#9be9a8"] {
+    background: var(--color-calendar-graph-day-L1-bg) !important;
+    fill: var(--color-calendar-graph-day-L1-bg) !important;
+  }
+  .contrib-legend [style*="#40c463"], .calendar-graph [fill="#40c463"] {
+    background: var(--color-calendar-graph-day-L2-bg) !important;
+    fill: var(--color-calendar-graph-day-L2-bg) !important;
+  }
+  .contrib-legend [style*="#30a14e"], .calendar-graph [fill="#30a14e"] {
+    background: var(--color-calendar-graph-day-L3-bg) !important;
+    fill: var(--color-calendar-graph-day-L3-bg) !important;
+  }
+  .contrib-legend [style*="#216e39"], .calendar-graph [fill="#216e39"] {
+    background: var(--color-calendar-graph-day-L4-bg) !important;
+    fill: var(--color-calendar-graph-day-L4-bg) !important;
+  }
   .calendar-graph .days-selected rect.day.active {
     stroke: #ddd !important;
   }
@@ -1150,7 +1205,6 @@
   .action-logo::after {
     filter: invert(100%) hue-rotate(180deg) brightness(350%) !important;
   }
-  /* invert network graph; gh-polls (https://github.com/apex/gh-polls) */
   img[alt="FOSSA Status"], img[data-canonical-src*="prod/timeseries/"],
   a[href$="vote"] img[data-canonical-src*="/poll/"], #parallax_error_text:not(p),
   img[data-canonical-src*="img.shields.io"][data-canonical-src*="style=social"],
@@ -1162,17 +1216,6 @@
   img[alt="FOSSA Status"],
   img[data-canonical-src*="img.shields.io"][data-canonical-src*="style=social"] {
     background: none !important;
-  }
-  div#network.network > div > canvas {
-    filter: invert(90%) hue-rotate(180deg) contrast(95%);
-  }
-  [src*="spinners/fork.gif"] {
-    filter: invert(1) hue-rotate(180deg) contrast(110%) brightness(110%);
-    mix-blend-mode: screen;
-  }
-  img[src*="resources-logo"], svg.IconNav-img, .container-xl[id] svg,
-  body.logged-out .col-md-7 svg {
-    filter: invert(83%) !important;
   }
   .container-xl[id] img {
     z-index: 100 !important;
@@ -1361,7 +1404,7 @@
   .menu-item.selected::before {
     background: #eee !important;
   }
-  #network canvas, .qr-code-table, .qr-code-table .white {
+  .qr-code-table, .qr-code-table .white {
     background: #fff !important;
   }
   /* actions in issues - this style needs to be after .bubble */
@@ -1416,7 +1459,8 @@
   .signup-prompt-bg, ul.search-results li .label,
   div[style*="background-color: #044d6e"],
   body[class="page-responsive"] .bg-blue-light,
-  .repository-content > .Box--condensed > .Box-body.bg-blue-light {
+  .repository-content > .Box--condensed > .Box-body.bg-blue-light,
+  .timeline-comment.current-user .previewable-comment-form .comment-form-head.tabnav {
     background: #182030 !important;
   }
   .topic-tag-contrast, .topic-tag-contrast .delete-topic-link, .topic-tag {
@@ -1448,7 +1492,9 @@
   .subset-files-tab .stale-files-tab-link,
   .timeline-comment.current-user:not(.is-internal) .timeline-comment-header .link-gray,
   .timeline-comment.current-user:not(.is-internal) .timeline-comment-header .text-gray,
-  .timeline-comment.current-user .timeline-comment-header-text code a {
+  .timeline-comment.current-user:not(.is-internal) .timeline-comment-header .Link--secondary,
+  .timeline-comment.current-user:not(.is-internal) .timeline-comment-header-text code a,
+  .timeline-comment.current-user:not(.is-internal) .color-text-secondary {
     color: #9daccc !important;
   }
   .timeline-comment.current-user:not(.is-internal) .timeline-comment-header,
@@ -1508,7 +1554,7 @@
     background: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, .6) 65%, rgba(0, 0, 0, .6) 100%) !important;
   }
   .TimelineItem-break {
-    background: linear-gradient(to bottom, rgba(25, 25, 25, .8) 1%, transparent 80%) !important;
+    background: linear-gradient(to bottom, var(--color-bg-canvas) 30%, transparent 80%) !important;
   }
   /* light grey gradient */
   .signup-button:hover, a.signin:hover, .hero .textographic,
@@ -1711,17 +1757,6 @@
   .archived-project-cards-pane .project-card .archived-header {
     color: #fbca04;
   }
-  /* yellow border (travis) */
-  .branch-action-state-unknown .branch-action-body,
-  .branch-action-state-unknown .branch-status,
-  .branch-action-state-unstable .branch-action-body,
-  .branch-action-state-unstable .branch-status {
-    border-color: #884 !important;
-  }
-  .branch-action-state-unknown .branch-action-body::before,
-  .branch-action-state-unstable .branch-action-body::before {
-    border-right-color: #884 !important;
-  }
   /* yellow background */
   .Label--outline.bg-yellow-light,
   .review-comment .pending-batched-suggestion-label {
@@ -1749,27 +1784,11 @@
     border-color: #060 !important;
   }
   /* Green border */
-  .mergeable-clean .bubble .mergeable,
-  .branch-action-state-clean .branch-action-body {
-    border-color: #041 !important;
-  }
-  .mergeable-clean .bubble::after,
-  .branch-action-state-clean .branch-action-body::before {
-    border-right-color: #041 !important;
-  }
   .billing-confirmation-box {
     border-color: #083 !important;
   }
   .border.border-green {
     border-color: #060 !important;
-  }
-  /* original color */
-  .signed-commit-badge.verified:hover, .Label--outline-green {
-    border-color: #6cc644;
-  }
-  .signed-commit-verified-label, .signed-commit-badge.verified,
-  .reponame-suggestion {
-    color: #55a532;
   }
   /* Green text */
   /* inline style, note this does not work when color is not first */
@@ -1778,9 +1797,7 @@
     color: #6cc644 !important;
   }
   .text-open, .text-success, .insertions, .cadd, .gi .diff-line-num,
-  .authors-and-code .insertions, span.diffstat .diffstat-bar.diff-added,
-  span.diffstat .diffstat-bar i.plus,
-  ul.summary-stats li .octicon-git-branch-create,
+  .authors-and-code .insertions, ul.summary-stats li .octicon-git-branch-create,
   ul.summary-stats li .octicon-issue-opened, #toc .octicon-diff-added,
   .setup-info-module .features-list .octicon, .setup-form-container .secure,
   .highlight .gi, .type-icon-state-open, .release-label.latest a,
@@ -1825,17 +1842,9 @@
     position: relative !important;
     z-index: 1 !important;
   }
-  @media (min-width:768px) {
-    .page-responsive .previewable-comment-form .comment-form-head.tabnav {
-      background-color: var(--ghd-bg-color);
-    }
-  }
   /* GitHub Enterprise (GHE) stuff */
   body.enterprise .repohead.experiment-repo-nav {
     background: rgba(24, 24, 24, .4);
-  }
-  body.enterprise .new-discussion-timeline .previewable-comment-form .comment-form-head.tabnav {
-    background: var(--ghd-bg-color);
   }
   body.enterprise .timeline-comment-wrapper .timeline-comment.current-user::before {
     border-right-color: #246;
@@ -1977,23 +1986,6 @@
   form[action*="/.github/workflows/"] .commit-create {
     padding-top: 0 !important;
   }
-  /* network members */
-  .network-tree {
-    width: 19px !important;
-    height: 0 !important;
-    padding-top: 26px !important;
-    background-repeat: no-repeat !important;
-    background-position: -2px center !important;
-  }
-  .network-tree[src$="t.png"] {
-    background-image: url("data:image/gif;base64,R0lGODlhFAAaAIAAAMzMzP///yH5BAEAAAEALAAAAAAUABoAAAIkjI+pG8APY5O0uorfzRzt3n1g5pSTOTJiSq1s5L6ajMW0YgcFADs=") !important;
-  }
-  .network-tree[src$="i.png"] {
-    background-image: url("data:image/gif;base64,R0lGODlhFAAaAIAAAMzMzP///yH5BAEAAAEALAAAAAAUABoAAAIhjI+pG8APY5O0uorfzRzt3n1gJo6WGaJcqUJsy7ywIgcFADs=") !important;
-  }
-  .network-tree[src$="l.png"] {
-    background-image: url("data:image/gif;base64,R0lGODlhFAAaAIAAAMzMzP///yH5BAEAAAEALAAAAAAUABoAAAIejI+pG8APY5O0uorfzRzt3n1g5pSTOabqyrbuC68FADs=") !important;
-  }
   #searchfield {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAMAAABFNRROAAAAM1BMVEUAAABKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkrmvr7+AAAAEXRSTlMAmEgOJpKQimpgRHVzVk8fFp8jXkwAAABRSURBVAjXVY1JDsAwCAMxhGxNl/+/toVEKpmLNcLCRJRqKTXRhOGwS4KyCCv8eoBnY1hkiIUgb6ah2THWly7SFS0uAKfZWm+mP59eUfNNgYdehjcBh7PIFcgAAAAASUVORK5CYII=") !important;
     background-repeat: no-repeat !important;
@@ -2063,7 +2055,7 @@
   .pagehead.repohead h1 .repo-label span, .api pre, .coupon-icon {
     border: 1px solid #484848;
   }
-  #graph-shots li > p, .logo-box, .branch-infobar, #com hr,
+  #graph-shots li > p, .logo-box, .branch-infobar,
   .discussion-item-body .outdated-comment .file-header,
   .repository-content > .Box--condensed > .Box-body.bg-blue-light {
     border-bottom: none !important;
@@ -2085,13 +2077,6 @@
   .ScreenshotCarousel-navitem,
   .new-discussion-timeline .composer .timeline-comment::after {
     border-right-color: var(--ghd-bg-color);
-  }
-  /* inline code - add border */
-  .markdown-format p > code, .markdown-body code, .markdown-body tt,
-  .markdown-format pre, .markdown-body pre, .markdown-format .highlight pre,
-  .markdown-body .highlight pre, #user-content-toc td, .copyable-terminal,
-  .project-card .highlight pre, .project-card code, .rgh-parse-backticks {
-    border: 1px solid rgba(255, 255, 255, .1) !important;
   }
   /* toc in markdown, reset border-collaps so border-radius works   */
   /* https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki */
@@ -2245,65 +2230,10 @@
     fill: #c0c0c0 !important;
   }
   /* Actions */
-  .CheckStep div[style*="opacity:0.5"] {
-    opacity: 1 !important;
-  }
-  .CheckStep-line, .CheckStep-line .CheckStep-line-content a {
-    color: #afafaf;
-  }
-  .CheckStep-header-label, .CheckRun-header .btn-link:not([disabled]) .octicon,
-  .CheckStep .log-line-error-next .CheckStep-line-content,
-  .CheckRun-header .btn-link:not([disabled]),
-  .CheckRun-header .btn-link:not([disabled]) .octicon,
-  .CheckRun-header .btn.btn-link:not([disabled]) .octicon,
-  .CheckStep .log-line-error .CheckStep-line-content, .CheckStep-line:hover,
-  .CheckStep[open] .CheckStep-header-label, .CheckStep .log-download-error,
-  .CheckStep[open] .CheckStep-header, .CheckRun-header-counter,
-  .CheckRun-search-icon, .CheckRun-header .btn-link:hover:not([disabled]),
-  .CheckRun-header .btn.btn-link:hover:not([disabled]) .octicon {
-    color: #ccc !important;
-  }
-  .CheckStep-header:hover, .CheckStep[open] .CheckStep-header,
-  .CheckStep-line:hover,
-  .CheckRun-search details[open] .CheckStep-header-dropdown,
-  .CheckStep-header-dropdown:hover {
-    background: #222 !important;
-  }
-  .CheckRun-header .btn-link:hover:not([disabled]),
-  .CheckRun-header .btn.btn-link:hover:not([disabled]) .octicon {
-    background: #2c2c2c !important;
-  }
-  .CheckStep-header {
-    box-shadow: none !important;
-  }
-  .CheckRun {
-    border-top: 1px solid #343434;
-  }
-  .CheckRun-header, .dropdown-menu-dark, .dropdown-menu-dark .dropdown-divider {
-    border-color: #343434 !important;
-  }
-  .CheckRun-header .CheckRun-search-input {
-    color: #eee;
-    background-color: #282828;
-  }
-  .CheckRun-header .CheckRun-search-input:focus {
-    background-color: #222;
-  }
-  .CheckRun-header-counter {
-    background-color: #333;
-  }
-  /* inline code - single lines */
-  .markdown-body tt, .protip code, .content dl code, .content ul code,
-  .content .sectionbody .dlist dt, .content p > tt,
-  .content .sectionbody .dlist dt, .content p > tt, .commit-sha,
-  .commit-preview .message pre, .rendered_html pre, .rendered_html code,
-  .markdown-format p > code, .markdown-format pre, .rgh-parse-backticks {
-    background: #222 !important;
-  }
-  .markdown-body code, p code {
-    background: #222;
-  }
   .project-card code {
     background: #333 !important;
+  }
+  .commit-create .CodeMirror {
+    padding-top: 0 !important;
   }
 }
